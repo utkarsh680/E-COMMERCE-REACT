@@ -1,0 +1,3 @@
+const fetchapi=async() =>{
+  fetch
+} 
