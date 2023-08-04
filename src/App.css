@@ -12,3 +12,13 @@
   align-items: center;
   font-size: 2rem;
 }
+.hello{
+  height: 100%;
+  width: 100%;
+ 
+}
+.box img{
+  height: 200px;
+  width: 200px;
+  border: 1px solid white;
+}
