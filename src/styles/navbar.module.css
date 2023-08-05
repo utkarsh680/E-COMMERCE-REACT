@@ -1,0 +1,17 @@
+.navbar{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar ul{
+    list-style: none;
+    
+}
+.list a{
+    text-decoration: none;
+    margin-left:30px;
+    font-size:20px;
+    color:rgb(113, 111, 111);
+}

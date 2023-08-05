@@ -1,9 +1,8 @@
-import React from "react";
-import styles from "../styles/home.module.css";
-import Navbar from "./navbar";
+import React from 'react'
+import Navbar from './navbar'
+import styles from '../styles/cart.module.css'
 
-
-function Home() {
+function Cart() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -17,7 +16,7 @@ function Home() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Cart
