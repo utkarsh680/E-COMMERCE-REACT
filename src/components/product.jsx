@@ -28,7 +28,9 @@ function Product(props) {
   }, [props.usersListReducer.products]);
   return (
     <div className={styles.homeContainer}>
-      <div className={styles.style}></div>
+      <div className={styles.style}>
+      <div className={styles.inStyle}></div>
+      </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
