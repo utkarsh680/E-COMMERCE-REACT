@@ -1,9 +1,11 @@
-import { ADD_PRODUCTS } from "../Actions/Action"
+import { ADD_PRODUCTS, ADD_TO_CART } from "../Actions/Action"
 
 const initialState = {
     loading: true,
     userList:[],
-    products:[]
+    products:[],
+    cartList: [],
+
    
 }
 export const usersListReducer = (state = initialState, action) => {
@@ -14,6 +16,12 @@ export const usersListReducer = (state = initialState, action) => {
                 loading:false,
                 products: action.payload
             }
+        case ADD_TO_CART:
+            return{
+                ...state,
+                cartList: [...state.cartList, action.payload]
+
+            }    
         
         default :
         return state
