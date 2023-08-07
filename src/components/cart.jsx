@@ -1,12 +1,20 @@
 import React from 'react'
 import Navbar from './navbar'
 import styles from '../styles/cart.module.css'
-import { connect } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { removeFromCart } from '../Redux/Actions/Action'
 
 
-function Cart(props) {
-  const data = props.usersListReducer.cartList;
-  console.log("cart", data)
+function Cart() {
+
+  const myData = useSelector((state)=> state.usersListReducer.cartList)
+
+  const dispatch = useDispatch()
+  const removeProductFromCart = (id) =>{
+    dispatch(removeFromCart(id))
+  }
+  
+  console.log("cart", myData)
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -16,11 +24,12 @@ function Cart(props) {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar/>
-            {data.map((item) =>{
-
+            {myData.map((item) =>{
+              const { name, id, image } = item;
               return(
-                <div>
+                <div key={id}>
                   {item.image}
+                  <button className={styles.addCart} onClick={() => removeProductFromCart(id)}>remove cart</button>
                 </div>
               )
 
@@ -31,10 +40,6 @@ function Cart(props) {
     </div>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    usersListReducer: state.usersListReducer,
-  };
-};
-export default connect(mapStateToProps)(Cart);
+
+export default Cart;
 

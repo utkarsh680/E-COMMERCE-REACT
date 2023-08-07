@@ -4,10 +4,11 @@ import Home from './components/home'
 import './App.css'
 import store from './Redux/Store'
 import {Route, Routes} from "react-router-dom"
-import Product from './components/product'
+import Product from './components/Product'
 import Cart from './components/cart'
 import Wishlist from './components/wishlist'
-
+import { ToastContainer} from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       </Routes>
 
     </Provider>
+    <ToastContainer />
     
     </div>
 

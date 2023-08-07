@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector, connect } from "react-redux";
-import { addProducts } from "../Redux/Actions/Action";
+import { useDispatch, useSelector } from "react-redux";
+import { addProducts, addToWishlist} from "../Redux/Actions/Action";
 import styles from "../styles/product.module.css";
 import Navbar from "./navbar";
 import { addToCart } from "../Redux/Actions/Action";
+import {toast } from 'react-toastify';
 
-function Product(props) {
-  const data = props.usersListReducer.products;
+
+function Product() {
+
+  const myData = useSelector((state)=> state.usersListReducer.products)
+  const myCartData = useSelector((state) => state.usersListReducer.cartList)
+  const myWishlistData = useSelector((state) => state.usersListReducer.wishList)
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
   const dispatch = useDispatch();
 
@@ -16,20 +21,31 @@ function Product(props) {
   const getProducts = async () => {
     const res = await fetch(`${url}/products`);
     const result = await res.json();
-    // console.log(result)
     dispatch(addProducts(result));
-    // console.log("hello",store.getState().usersListReducer.products)
   };
 
   useEffect(() => {
     getProducts();
-    setProducts(data);
-  }, [props.usersListReducer.products]);
+    setProducts(myData);
+  }, [myData]);
 
   const addProductToCart = (product) =>{
+    if (myCartData.some(cartItem => cartItem.id === product.id)){
+    toast.error('hello')
+    return;
+    }
     dispatch(addToCart(product))
+    toast.success('port created')
   }
-  
+ 
+  const addProductToWishlist = (product) =>{
+    if (myWishlistData.some(wishListItem => wishListItem.id === product.id)){
+      toast.error('hello')
+      return;
+    }
+    dispatch(addToWishlist(product))
+    toast.success('port created')
+  }
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -46,6 +62,8 @@ function Product(props) {
                 <div key={id}>
                  <div className={styles.imgBox}>
                   <button className={styles.addCart} onClick={() => addProductToCart(product)}>add cart</button>
+                  <button className={styles.addCart} onClick={() => addProductToWishlist(product)}>add to wishlist</button>
+                  
                   <img src={product.image} alt="img" />
                  </div>
                 </div>
@@ -59,9 +77,4 @@ function Product(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    usersListReducer: state.usersListReducer,
-  };
-};
-export default connect(mapStateToProps)(Product);
+export default Product;
