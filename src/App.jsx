@@ -1,12 +1,9 @@
 
 import { Provider } from 'react-redux'
-import Home from './components/home'
+import { Home, Product, Cart, Wishlist } from './components'
 import './App.css'
 import store from './Redux/Store'
 import {Route, Routes} from "react-router-dom"
-import Product from './components/Product'
-import Cart from './components/cart'
-import Wishlist from './components/wishlist'
 import { ToastContainer} from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 

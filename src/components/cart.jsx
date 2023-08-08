@@ -1,20 +1,18 @@
-import React from 'react'
-import Navbar from './navbar'
-import styles from '../styles/cart.module.css'
-import { useSelector,useDispatch } from 'react-redux'
-import { removeFromCart } from '../Redux/Actions/Action'
-
+import React from "react";
+import Navbar from "./Navbar";
+import styles from "../styles/cart.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "../Redux/Actions/Action";
 
 function Cart() {
+  const myData = useSelector((state) => state.usersListReducer.cartList);
 
-  const myData = useSelector((state)=> state.usersListReducer.cartList)
+  const dispatch = useDispatch();
+  const removeProductFromCart = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
-  const dispatch = useDispatch()
-  const removeProductFromCart = (id) =>{
-    dispatch(removeFromCart(id))
-  }
-  
-  console.log("cart", myData)
+  console.log("cart", myData);
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -23,23 +21,26 @@ function Cart() {
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar/>
-            {myData.map((item) =>{
+            <Navbar />
+            {myData.map((item) => {
               const { name, id, image } = item;
-              return(
+              return (
                 <div key={id}>
                   {item.image}
-                  <button className={styles.addCart} onClick={() => removeProductFromCart(id)}>remove cart</button>
+                  <button
+                    className={styles.addCart}
+                    onClick={() => removeProductFromCart(id)}
+                  >
+                    remove cart
+                  </button>
                 </div>
-              )
-
+              );
             })}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Cart;
-

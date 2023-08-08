@@ -3,12 +3,22 @@ export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
 export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST'
+export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
+
+export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
 
 // for add product from api
-export const addProducts = (data) =>{
+export const addData= (data) =>{
     return {
         type:ADD_PRODUCTS,
         payload:data
+    }
+}
+
+export const removeProduct = (item_id) =>{
+    return {
+        type: REMOVE_PRODUCT,
+        payload:item_id
     }
 }
 
@@ -46,3 +56,14 @@ export const removeFromWishlist =(item_id) => {
         payload: item_id
     }
 }
+
+// for clear wishlist
+
+export const clearWishlist = () =>
+{
+    return{
+        type:CLEAR_WISHLIST,
+    }
+}
+
+
