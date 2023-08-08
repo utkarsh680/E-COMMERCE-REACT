@@ -5,14 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromWishlist, clearWishlist } from "../Redux/Actions/Action";
 
 function Wishlist() {
-  const myData = useSelector((state) => state.usersListReducer.wishList);
+  const myData = useSelector((state) => state.wishlistReducer.wishList); //Data from state
   const dispatch = useDispatch();
-  const [wishlistItems, setWishlistItems] = useState(myData);
+  const [wishlistItems, setWishlistItems] = useState(myData); //set data as wishlistItems
 
-  const removeProductFromWishList = (id) => {
-    dispatch(removeFromWishlist(id));
-  };
-
+  // Add item from localStorage
   useEffect(() => {
     // Get items from localstorage
     if (localStorage.getItem("wishlist")) {
@@ -21,6 +18,12 @@ function Wishlist() {
     }
   }, [localStorage.getItem("wishlist")]);
 
+  // remove item from localStorage
+  const removeProductFromWishList = (id) => {
+    dispatch(removeFromWishlist(id));
+  };
+
+  // clear all items from wishlist
   const clearWishlistFromList = () => {
     dispatch(clearWishlist());
   };
@@ -34,7 +37,6 @@ function Wishlist() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
-
             {wishlistItems.map((item) => {
               const { id, name, image } = item;
               return (

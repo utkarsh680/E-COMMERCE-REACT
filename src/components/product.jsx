@@ -7,10 +7,10 @@ import { addToCart } from "../Redux/Actions/Action";
 import { toast } from "react-toastify";
 
 function Product() {
-  const products = useSelector((state) => state.usersListReducer.products);
-  const myCartData = useSelector((state) => state.usersListReducer.cartList);
+  const products = useSelector((state) => state.showDataReducer.products);
+  const myCartData = useSelector((state) => state.cartReducer.cartList);
   const myWishlistData = useSelector(
-    (state) => state.usersListReducer.wishList
+    (state) => state.wishlistReducer.wishList
   );
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
   const dispatch = useDispatch();

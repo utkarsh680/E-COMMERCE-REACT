@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../styles/navbar.module.css'
+import styles from "../styles/navbar.module.css";
 import { Link } from "react-router-dom";
 function Navbar() {
   return (
@@ -10,13 +10,12 @@ function Navbar() {
           <Link to="/product">Product</Link>
           <Link to="/cart">Cart</Link>
           <Link to="/wishlist">Wishlist</Link>
-          <Link to ='/'>Deal<span>new</span></Link>
-          
+          <Link to="/">
+            Deal<span>new</span>
+          </Link>
         </li>
       </ul>
-      
     </div>
-   
   );
 }
 
