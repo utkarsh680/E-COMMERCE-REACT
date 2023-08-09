@@ -1,5 +1,6 @@
 import {
   ADD_PRODUCTS,
+  ADD_TASK_SUCCESS,
   REMOVE_PRODUCT,
 } from "../Actions/Action";
 
@@ -23,8 +24,15 @@ export const showDataReducer = (state = initialState, action) => {
         products: state.products.filter((item) => item.id !== action.payload),
       };
     }
+    case ADD_TASK_SUCCESS:
+    return{
+      ...state,
+      products: [...state.products, action.payload]
+    }
 
     default:
       return state;
   }
+
+  
 };

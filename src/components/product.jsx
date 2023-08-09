@@ -32,21 +32,41 @@ function Product() {
   };
 
   const addProductToCart = (product) => {
-    if (myCartData.some((cartItem) => cartItem.id === product.id)) {
-      toast.error("hello");
+    let flag = true;
+    if (localStorage.getItem('cart')) {
+      const tempArray = [...JSON.parse(localStorage.getItem("cart"))];
+      tempArray.map((item) => {
+        if (item.id === product.id) {
+          flag = false;
+          toast.error("Already wishlisted!");
+          return;
+        }
+      })
+    }
+    if(!flag){
       return;
     }
     dispatch(addToCart(product));
-    toast.success("port created");
+    toast.success("created");
   };
 
   const addProductToWishlist = (product) => {
-    if (myWishlistData.some((wishListItem) => wishListItem.id === product.id)) {
-      toast.error("hello");
+    let flag = true;
+    if (localStorage.getItem('wishlist')) {
+      const tempArray = [...JSON.parse(localStorage.getItem("wishlist"))];
+      tempArray.map((item) => {
+        if (item.id === product.id) {
+          flag = false;
+          toast.error("Already wishlisted!");
+          return;
+        }
+      })
+    }
+    if (!flag) {
       return;
     }
     dispatch(addToWishlist(product));
-    toast.success("port created");
+    toast.success("created");
   };
   return (
     <div className={styles.homeContainer}>

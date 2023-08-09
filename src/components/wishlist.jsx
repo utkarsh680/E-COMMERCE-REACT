@@ -18,6 +18,10 @@ function Wishlist() {
     }
   }, [localStorage.getItem("wishlist")]);
 
+  useEffect(() => {
+    if (!localStorage.getItem("wishlist")) setWishlistItems(myData);
+  }, [myData]);
+
   // remove item from localStorage
   const removeProductFromWishList = (id) => {
     dispatch(removeFromWishlist(id));
@@ -38,6 +42,7 @@ function Wishlist() {
           <div className={styles.inBox}>
             <Navbar />
             {wishlistItems.map((item) => {
+              console.log(item);
               const { id, name, image } = item;
               return (
                 <div key={id}>

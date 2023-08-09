@@ -10,9 +10,11 @@ function Navbar() {
           <Link to="/product">Product</Link>
           <Link to="/cart">Cart</Link>
           <Link to="/wishlist">Wishlist</Link>
+          
           <Link to="/">
             Deal<span>new</span>
           </Link>
+          <Link to="/addData">Add Data</Link>
         </li>
       </ul>
     </div>

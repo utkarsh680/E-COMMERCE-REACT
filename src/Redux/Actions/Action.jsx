@@ -7,6 +7,14 @@ export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
 export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
 
+export const ADD_TASK_SUCCESS = 'ADD_TASK_SUCCESS'
+
+export const addTaskSuccess = (task) => {
+    return{
+        type: ADD_TASK_SUCCESS
+    }
+}
+
 // for add product from api
 export const addData= (data) =>{
     return {

@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { Home, Product, Cart, Wishlist } from "./components";
+import { Home, Product, Cart, Wishlist, AddData } from "./components";
 import "./App.css";
 import store from "./Redux/Store";
 import { Route, Routes } from "react-router-dom";
@@ -15,6 +15,7 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path ='/addData' element = {<AddData />} />
         </Routes>
       </Provider>
       <ToastContainer />
