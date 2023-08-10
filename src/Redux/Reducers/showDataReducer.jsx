@@ -20,13 +20,15 @@ export const showDataReducer = (state = initialState, action) => {
       };
 
     case REMOVE_PRODUCT: {
-      let items = [];
-      if(localStorage.getItem('product')){
-        items = [...JSON.parse(localStorage.getItem('product'))]
-      }
+     const localStorageProducts = JSON.parse(localStorage.getItem('product'));
+     if(localStorageProducts){
+      const updatedLocalStorageProduct = localStorageProducts.filter((product) => product.id !== action.payload);
+      localStorage.setItem('product', JSON.stringify(updatedLocalStorageProduct));
+     }
+     const updatedProducts = state.products.filter((product) => product.id !== action.payload)
       return {
         ...state,
-        products: state.products.filter((item) => item.id !== action.payload),
+        products:updatedProducts
       };
     }
     case ADD_TASK_SUCCESS:

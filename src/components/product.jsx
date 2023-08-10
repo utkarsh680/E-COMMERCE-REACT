@@ -36,8 +36,8 @@ function Product() {
   }, []);
 
   const removeProductClick = (id) => {
-    console.log(id);
     dispatch(removeProduct(id));
+    console.log(id)
   };
 
   const addProductToCart = (product) => {
