@@ -59,7 +59,7 @@ function Wishlist() {
                     clear wishlist
                   </button>
                   <h1>{name}</h1>
-                  {image}
+                 
                 </div>
               );
             })}

@@ -1,18 +1,29 @@
 import Navbar from "./Navbar";
 import styles from "../styles/addData.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTaskSuccess } from "../Redux/Actions/Action";
+
+import { v4 as uuidv4 } from 'uuid';
+ 
 function AddData() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.showDataReducer.products);
+  const data = useSelector((state) =>
+   state.showDataReducer.products);
+   console.log(data)
 
-  const [task, setTask] = useState('')
+  const [name, setName] = useState('')
 
+  const id = uuidv4();
+  
   const handleAddTask = () => {
-    dispatch(addTaskSuccess({text: task}))
-    setTask('')
-    console.log(task)
+    const items = {
+      id, 
+      name
+    }
+    console.log(items)
+    dispatch(addTaskSuccess({items}))
+    setName('')
   }
 
   return (
@@ -24,12 +35,16 @@ function AddData() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
+        
             <input
               type="text"
-              value={task}
-              onChange={(e) => setTask(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              key={data.id}
             />
-            <button onClick={handleAddTask}>Add Task</button>
+            <button onClick={handleAddTask}>Add Task</button> 
+            {name}
+            
           </div>
         </div>
       </div>

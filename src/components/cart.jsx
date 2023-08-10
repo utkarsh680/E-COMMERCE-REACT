@@ -39,7 +39,7 @@ function Cart() {
               const { name, id, image } = item;
               return (
                 <div key={id}>
-                  {item.image}
+                  {name}
                   <button
                     className={styles.addCart}
                     onClick={() => removeProductFromCart(id)}

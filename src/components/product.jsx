@@ -8,10 +8,9 @@ import { toast } from "react-toastify";
 
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
-  const myCartData = useSelector((state) => state.cartReducer.cartList);
-  const myWishlistData = useSelector(
-    (state) => state.wishlistReducer.wishList
-  );
+
+  const [item, setItem] = useState([]);
+
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
   const dispatch = useDispatch();
 
@@ -21,6 +20,16 @@ function Product() {
     const result = await res.json();
     dispatch(addData(result));
   };
+
+  useEffect(() => {
+    let items = [];
+    if (localStorage.getItem("product")) {
+      items = JSON.parse(localStorage.getItem("product"));
+    }
+    items = [...items, ...products];
+    setItem(items);
+    console.log(item);
+  }, [products]);
 
   useEffect(() => {
     getProducts();
@@ -33,7 +42,7 @@ function Product() {
 
   const addProductToCart = (product) => {
     let flag = true;
-    if (localStorage.getItem('cart')) {
+    if (localStorage.getItem("cart")) {
       const tempArray = [...JSON.parse(localStorage.getItem("cart"))];
       tempArray.map((item) => {
         if (item.id === product.id) {
@@ -41,9 +50,9 @@ function Product() {
           toast.error("Already wishlisted!");
           return;
         }
-      })
+      });
     }
-    if(!flag){
+    if (!flag) {
       return;
     }
     dispatch(addToCart(product));
@@ -52,7 +61,7 @@ function Product() {
 
   const addProductToWishlist = (product) => {
     let flag = true;
-    if (localStorage.getItem('wishlist')) {
+    if (localStorage.getItem("wishlist")) {
       const tempArray = [...JSON.parse(localStorage.getItem("wishlist"))];
       tempArray.map((item) => {
         if (item.id === product.id) {
@@ -60,7 +69,7 @@ function Product() {
           toast.error("Already wishlisted!");
           return;
         }
-      })
+      });
     }
     if (!flag) {
       return;
@@ -78,7 +87,7 @@ function Product() {
           <div className={styles.inBox}>
             <Navbar />
             <div className={styles.cardBox}>
-              {products.map((product) => {
+              {item.map((product) => {
                 const { name, id, image } = product;
                 return (
                   <div key={id}>
@@ -101,7 +110,7 @@ function Product() {
                       >
                         remove
                       </button>
-                      <img src={product.image} alt="img" />
+                      <h1>{name}</h1>
                     </div>
                   </div>
                 );

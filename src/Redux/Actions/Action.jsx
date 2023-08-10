@@ -11,7 +11,8 @@ export const ADD_TASK_SUCCESS = 'ADD_TASK_SUCCESS'
 
 export const addTaskSuccess = (task) => {
     return{
-        type: ADD_TASK_SUCCESS
+        type: ADD_TASK_SUCCESS,
+        payload:task.items
     }
 }
 
