@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addData, addToWishlist, removeProduct } from "../Redux/Actions/Action";
+import {
+  addToWishlist,
+  fetchProducts,
+  removeProduct,
+} from "../Redux/Actions/Action";
 import styles from "../styles/product.module.css";
 import Navbar from "./Navbar";
 import { addToCart } from "../Redux/Actions/Action";
@@ -18,7 +22,7 @@ function Product() {
   const getProducts = async () => {
     const res = await fetch(`${url}/products`);
     const result = await res.json();
-    dispatch(addData(result));
+    dispatch(fetchProducts(result));
   };
 
   useEffect(() => {
@@ -28,7 +32,6 @@ function Product() {
     }
     items = [...items, ...products];
     setItem(items);
-    console.log(item);
   }, [products]);
 
   useEffect(() => {
@@ -37,7 +40,7 @@ function Product() {
 
   const removeProductClick = (id) => {
     dispatch(removeProduct(id));
-    console.log(id)
+    console.log(id);
   };
 
   const addProductToCart = (product) => {
@@ -77,6 +80,11 @@ function Product() {
     dispatch(addToWishlist(product));
     toast.success("created");
   };
+
+  const cardBackground = {
+    background: `url("${products.image}")`,
+  };
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -91,26 +99,32 @@ function Product() {
                 const { name, id, image } = product;
                 return (
                   <div key={id}>
-                    <div className={styles.imgBox}>
-                      <button
-                        className={styles.addCart}
-                        onClick={() => addProductToCart(product)}
-                      >
-                        add cart
-                      </button>
-                      <button
-                        className={styles.addCart}
-                        onClick={() => addProductToWishlist(product)}
-                      >
-                        add to wishlist
-                      </button>
-                      <button
-                        className={styles.addCart}
-                        onClick={() => removeProductClick(id)}
-                      >
-                        remove
-                      </button>
-                      <h1>{name}</h1>
+                    <div style={{background: `url("${image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`,}}
+                      className={styles.imgBox}
+                    >
+                      <div className={styles.overlay}>
+                        <div className={styles.image}>
+                          <img src={product.image} alt="" />
+                        </div>
+                        {/* <button
+                          className={styles.addCart}
+                          onClick={() => addProductToCart(product)}
+                        >
+                          add cart
+                        </button>
+                        <button
+                          className={styles.addCart}
+                          onClick={() => addProductToWishlist(product)}
+                        >
+                          add to wishlist
+                        </button>
+                        <button
+                          className={styles.addCart}
+                          onClick={() => removeProductClick(id)}
+                        >
+                          remove
+                        </button> */}
+                      </div>
                     </div>
                   </div>
                 );

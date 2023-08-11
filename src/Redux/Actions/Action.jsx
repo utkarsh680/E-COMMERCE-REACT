@@ -1,4 +1,4 @@
-export const ADD_PRODUCTS = 'ADD_PRODUCTS'
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
@@ -7,19 +7,19 @@ export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
 export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
 
-export const ADD_TASK_SUCCESS = 'ADD_TASK_SUCCESS'
+export const  ADD_PRODUCT = 'ADD_PRODUCT'
 
-export const addTaskSuccess = (task) => {
+export const addProduct = (task) => {
     return{
-        type: ADD_TASK_SUCCESS,
+        type: ADD_PRODUCT,
         payload:task.items
     }
 }
 
 // for add product from api
-export const addData= (data) =>{
+export const fetchProducts= (data) =>{
     return {
-        type:ADD_PRODUCTS,
+        type:FETCH_PRODUCTS,
         payload:data
     }
 }
