@@ -11,6 +11,7 @@ function AddData() {
   const data = useSelector((state) => state.showDataReducer.products);
   console.log(data);
 
+
   const [name, setName] = useState("");
 
   const id = uuidv4();
@@ -19,8 +20,10 @@ function AddData() {
     const items = {
       id,
       name,
+    
+
     };
-    console.log(items);
+   console.log(items)
     dispatch(addProduct({ items }));
     setName("");
   };

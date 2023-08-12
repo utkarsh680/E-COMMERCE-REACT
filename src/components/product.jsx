@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faPenToSquare,
+  faTrash,
+  faBagShopping,
+} from "@fortawesome/free-solid-svg-icons";
+
 import {
   addToWishlist,
   fetchProducts,
@@ -9,10 +17,11 @@ import styles from "../styles/product.module.css";
 import Navbar from "./Navbar";
 import { addToCart } from "../Redux/Actions/Action";
 import { toast } from "react-toastify";
+import categoryIcon from "../assets/icons/category.svg";
+import starIcon from "../assets/icons/star.svg";
 
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
-
   const [item, setItem] = useState([]);
 
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
@@ -41,9 +50,10 @@ function Product() {
   const removeProductClick = (id) => {
     dispatch(removeProduct(id));
     console.log(id);
+    toast.success("remove product successfully");
   };
 
-  const addProductToCart = (product) => {
+  const handleAddToCart = (product) => {
     let flag = true;
     if (localStorage.getItem("cart")) {
       const tempArray = [...JSON.parse(localStorage.getItem("cart"))];
@@ -81,10 +91,6 @@ function Product() {
     toast.success("created");
   };
 
-  const cardBackground = {
-    background: `url("${products.image}")`,
-  };
-
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -99,31 +105,76 @@ function Product() {
                 const { name, id, image } = product;
                 return (
                   <div key={id}>
-                    <div style={{background: `url("${image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`,}}
+                    <div
+                      style={{
+                        background: `url("${image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`,
+                      }}
                       className={styles.imgBox}
                     >
                       <div className={styles.overlay}>
                         <div className={styles.image}>
                           <img src={product.image} alt="" />
                         </div>
-                        {/* <button
-                          className={styles.addCart}
-                          onClick={() => addProductToCart(product)}
-                        >
-                          add cart
-                        </button>
-                        <button
-                          className={styles.addCart}
-                          onClick={() => addProductToWishlist(product)}
-                        >
-                          add to wishlist
-                        </button>
-                        <button
-                          className={styles.addCart}
-                          onClick={() => removeProductClick(id)}
-                        >
-                          remove
-                        </button> */}
+                        <div className={styles.menu}>
+                          <p
+                            onClick={() => addProductToWishlist(product)}
+                            className={styles.likeButton}
+                          >
+                            <FontAwesomeIcon
+                              icon={faHeart}
+                              className={styles.icon1}
+                            />{" "}
+                            Like
+                          </p>
+                          <div className={styles.border}></div>
+                          <p className={styles.editButton}>
+                            <FontAwesomeIcon
+                              icon={faPenToSquare}
+                              className={styles.icon2}
+                            />{" "}
+                            Edit
+                          </p>
+                          <div className={styles.border}></div>
+                          <p
+                            onClick={() => removeProductClick(id)}
+                            className={styles.deleteButton}
+                          >
+                            <FontAwesomeIcon
+                              icon={faTrash}
+                              className={styles.icon3}
+                            />{" "}
+                            Delete
+                          </p>
+                        </div>
+
+                        <div className={styles.details}>
+                          <div className={styles.heading}>
+                            <p className={styles.category}>
+                              {" "}
+                              <img src={categoryIcon} alt="" />{" "}
+                              {product.category}
+                            </p>
+                            <p className={styles.rating}>
+                              {" "}
+                              {product.rating} / 5 <img src={starIcon} alt="" />{" "}
+                            </p>
+                          </div>
+                          <div className={styles.price}>
+                            <p className={styles.name}>
+                              {" "}
+                              {product.name.substring(0, 20)}{" "}
+                            </p>
+                            <p className={styles.price}> ${product.price} </p>
+                          </div>
+                        </div>
+                        <div className={styles.actions}>
+                          <button
+                            className={styles.addToCart}
+                            onClick={() => handleAddToCart(product)}
+                          >
+                            <FontAwesomeIcon icon={faBagShopping} className={styles.cartIcon}/> Add to Bag
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
