@@ -2,6 +2,7 @@
   height: 100vh;
   width: 100vw;
   background-color: #cfd8d9;
+ 
 }
 .itemContainer {
   height: 100%;
@@ -30,6 +31,7 @@
   background-color: rgba(255, 255, 0, 0.572);
   border-radius: 30px;
   box-shadow: 3px 4px 30px rgba(242, 242, 43, 0.572);
+  
 }
 .box {
   height: 80%;
@@ -38,6 +40,7 @@
   background-color: #d9e2e3b8;
   border-radius: 10px;
   rotate: 2deg;
+  
 }
 .inBox {
   height: 100%;
@@ -49,6 +52,7 @@
   background-color: #e3e3e7a2;
   border-radius: 10px;
   rotate: -2deg;
+ 
 }
 
 .cardBox {
@@ -61,7 +65,7 @@
   column-gap: 2rem;
   flex-wrap: wrap;
   max-width: 80%;
-  padding: 10px;
+  padding: 10px; 
 }
 .cardBox::-webkit-scrollbar {
   display: none;
@@ -75,7 +79,8 @@
   background-size: contain;
   margin: 10px;
   background-repeat: no-repeat !important;
-  border-radius: 20px;
+  border-radius: 20px; 
+  
 }
 .overlay {
   display: flex;
@@ -89,6 +94,7 @@
   height: inherit;
   width: inherit;
   border-radius: 20px;
+  
 }
 
 .overlay .image {
@@ -98,6 +104,7 @@
   position: relative;
   top: -20px;
   left: -15px;
+  
 }
 
 .image img {
@@ -234,4 +241,32 @@
   background-color: transparent;
   color: white;
   border-color: white;
+}
+
+ .arrow{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  rotate: 310deg;
+  color: rgb(223, 222, 222);
+  padding: 12px;
+  font-size: 1.4rem;
+  overflow: hidden;
+}
+
+
+.cardBody{
+  position: absolute;
+  height: 200px;
+  width: 370px;
+  background-color:#dee1e5;
+  left:23px;
+  bottom: 30px;
+  border-radius: 20px 20px 20px 5px;
+  transition: all 0.5s ease;
+ 
+}
+.cardBody1{
+ 
+  
 }

@@ -2,6 +2,7 @@ import {
   ADD_PRODUCT,
   FETCH_PRODUCTS,
   REMOVE_PRODUCT,
+  SHOW_DETAILS,
 } from "../Actions/Action";
 
 const initialState = {
@@ -49,6 +50,15 @@ export const showDataReducer = (state = initialState, action) => {
         ...state,
         products: [...state.products],
       };
+
+     case SHOW_DETAILS:
+      const updatedProducts = state.products.map(item =>
+        item.id === action.payload ? { ...item, showDetails: true } : item
+      );
+      return{
+        ...state,
+        products:updatedProducts
+      } 
 
     default:
       return state;

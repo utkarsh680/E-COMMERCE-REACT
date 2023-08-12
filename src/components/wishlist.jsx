@@ -41,28 +41,29 @@ function Wishlist() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
-            {wishlistItems.map((item) => {
-              console.log(item);
-              const { id, name, image } = item;
+            <div className={styles.cardBox}>
+            {wishlistItems.map((product) => {
+             
+              const { id, name, image } = product;
               return (
                 <div key={id}>
-                  <button
-                    className={styles.addCart}
-                    onClick={() => removeProductFromWishList(id)}
-                  >
-                    remove product
-                  </button>
-                  <button
-                    className={styles.addCart}
-                    onClick={clearWishlistFromList}
-                  >
-                    clear wishlist
-                  </button>
-                  <h1>{name}</h1>
+                  <div
+                      style={{
+                        background: `url("${image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`,
+                      }}
+                      className={styles.imgBox}
+                    >
+                    <div className={styles.overlay}>
+                      <div className={styles.image}>
+                        <img src={product.image} alt="" />
+                      </div>
+                    </div>
+                  </div>
                  
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
       </div>

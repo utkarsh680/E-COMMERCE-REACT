@@ -9,6 +9,10 @@ export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
 
 export const  ADD_PRODUCT = 'ADD_PRODUCT'
 
+// for toggle
+
+export const SHOW_DETAILS = 'SHOW_PRODUCT'
+
 export const addProduct = (task) => {
     return{
         type: ADD_PRODUCT,
@@ -75,4 +79,13 @@ export const clearWishlist = () =>
     }
 }
 
+// for toggle card
+
+export const showDetails = (id) =>{
+    return {
+        type:SHOW_DETAILS,
+        payload:id
+
+    }
+}
 

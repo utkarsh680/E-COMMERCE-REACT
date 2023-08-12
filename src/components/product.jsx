@@ -6,12 +6,14 @@ import {
   faPenToSquare,
   faTrash,
   faBagShopping,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
   addToWishlist,
   fetchProducts,
   removeProduct,
+  showDetails,
 } from "../Redux/Actions/Action";
 import styles from "../styles/product.module.css";
 import Navbar from "./Navbar";
@@ -23,6 +25,12 @@ import starIcon from "../assets/icons/star.svg";
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
   const [item, setItem] = useState([]);
+  const [ hide, setHide ] = useState(false);
+
+  const handleClick = (id) =>{
+    dispatch(showDetails(id))
+    setHide(!hide)
+  }
 
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
   const dispatch = useDispatch();
@@ -172,9 +180,25 @@ function Product() {
                             className={styles.addToCart}
                             onClick={() => handleAddToCart(product)}
                           >
-                            <FontAwesomeIcon icon={faBagShopping} className={styles.cartIcon}/> Add to Bag
+                            <FontAwesomeIcon
+                              icon={faBagShopping}
+                              className={styles.cartIcon}
+                            />{" "}
+                            Add to Bag
                           </button>
                         </div>
+
+                        <div className={styles.detailsCard}>
+                          <p>
+                          <FontAwesomeIcon
+                            icon={faAngleRight}
+                            className={styles.arrow}
+                            onClick={() =>handleClick(id)}
+                          />
+                          </p>
+                          <div className={hide ? styles.cardBody : styles.cardBody1}></div>
+                          
+                          </div>
                       </div>
                     </div>
                   </div>
