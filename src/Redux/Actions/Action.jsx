@@ -4,14 +4,15 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
 export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
-
 export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
-
 export const  ADD_PRODUCT = 'ADD_PRODUCT'
 
 // for toggle
-
 export const SHOW_DETAILS = 'SHOW_PRODUCT'
+
+// move to wishlist
+
+export const MOVE_TO_WISHLIST_FROM_CART ='MOVE_TO_WISHLIST_FROM_CART'
 
 export const addProduct = (task) => {
     return{
@@ -89,3 +90,11 @@ export const showDetails = (id) =>{
     }
 }
 
+// move to wishlist form cart
+
+export const moveToWishlistFromCart = (product) => {
+    return {
+        type:MOVE_TO_WISHLIST_FROM_CART,
+        payload: product
+    }
+}

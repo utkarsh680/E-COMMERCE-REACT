@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../Actions/Action";
+import { ADD_TO_CART, MOVE_TO_WISHLIST_FROM_CART, REMOVE_FROM_CART } from "../Actions/Action";
 
 const initialState = {
   loading: true,
@@ -34,6 +34,22 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         cartList: updatedItem,
       };
+
+    case MOVE_TO_WISHLIST_FROM_CART:
+      const addDataToStorage = JSON.parse(localStorage.getItem('cart'))
+      if(addDataToStorage){
+        const newItem =[...addDataToStorage, action.payload];
+        localStorage.setItem('cart', JSON.stringify(newItem));
+
+      }else{
+        localStorage.setItem('cart', JSON.stringify([action.payload]))
+      }
+      return {
+        ...state,
+         cartList: [...state.cartList]
+      }
+
+      
     default:
       return state;
   }

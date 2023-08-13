@@ -37,7 +37,8 @@
   height: 80%;
   width: 70%;
   padding: 1px;
-  background-color: #d9e2e3b8;
+  background-color: #e2e3e9;
+  box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
   border-radius: 10px;
   rotate: 2deg;
   
@@ -49,7 +50,8 @@
   max-width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #e3e3e7a2;
+  background-color: #e5e4e9;
+  box-shadow: 1px 1px 10px inset rgb(135, 134, 134);
   border-radius: 10px;
   rotate: -2deg;
  
