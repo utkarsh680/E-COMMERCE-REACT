@@ -30,6 +30,7 @@ function Cart() {
   };
 
   const addProductToWishlist = (product) => {
+    console.log('hello')
     let flag = true;
     if(localStorage.getItem('wishlist')){
       const tempArray = [...JSON.parse(localStorage.getItem('wishlist'))];
@@ -46,6 +47,7 @@ function Cart() {
     return;
   }
     dispatch(addToWishlist(product))
+    dispatch(removeFromCart(product.id))
     toast.success('product added')
   }
 
