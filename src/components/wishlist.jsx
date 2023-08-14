@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import styles from "../styles/wishlist.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromWishlist, clearWishlist } from "../Redux/Actions/Action";
+import { removeFromWishlist, clearWishlist, addProduct, addToCart } from "../Redux/Actions/Action";
 import { faCartShopping, faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import categoryIcon from "../assets/icons/category.svg";
 import starIcon from "../assets/icons/star.svg";
+import { toast } from "react-toastify";
 function Wishlist() {
   const myData = useSelector((state) => state.wishlistReducer.wishList); //Data from state
   const dispatch = useDispatch();
@@ -35,6 +36,28 @@ function Wishlist() {
     dispatch(clearWishlist());
   };
 
+  const addProductToCart = (product) =>{
+    let flag = true;
+    if(localStorage.getItem('cart')){
+      const tempArray = [...JSON.parse(localStorage.getItem('cart'))]
+
+      tempArray.map((item) => {
+        if(item.id === product.id){
+          flag = false;
+          toast.error('already carted')
+          return;
+        }
+      })
+    }
+    if(!flag){
+      return;
+    }
+    dispatch(addToCart(product))
+    dispatch(removeFromWishlist(product.id))
+    toast.success('cart added')
+  }
+ 
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -62,7 +85,7 @@ function Wishlist() {
                         <FontAwesomeIcon
                           icon={faCartShopping}
                           className={styles.favIcon}
-                          onClick={() =>addProductToWishlist(product)}
+                          onClick={() =>addProductToCart(product)}
                          
                         />
                       </div>

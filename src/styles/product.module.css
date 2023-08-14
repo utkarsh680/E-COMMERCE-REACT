@@ -56,6 +56,14 @@
   rotate: -2deg;
  
 }
+.sortCategory{
+  position: absolute;
+  right: 0;
+  top: 50px;
+  padding: 40px;
+  cursor: pointer;
+
+}
 
 .cardBox {
   height: 78%;

@@ -6,6 +6,12 @@ export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
 export const  ADD_PRODUCT = 'ADD_PRODUCT'
+export const SORT_PRODUCTS_LOW_TO_HIGH ='SORT_PRODUCTS_LOW_TO_HIGH'
+export const SORT_PRODUCTS_HIGH_TO_LOW = 'SORT_PRODUCTS_HIGH_TO_LOW'
+export const SORT_BY_LATEST = 'SORT_BY_LATEST'
+export const SORT_BY_ELECTRONICS = 'SORT_BY_ELECTRONICS'
+export const SORT_BY_HOME_AND_KITCHEN = 'SORT_BY_HOME_AND_KITCHEN'
+export const SORT_BY_CATEGORY_ALL = 'SORT_BY_CATEGORY_ALL'
 
 // for toggle
 export const SHOW_DETAILS = 'SHOW_PRODUCT'
@@ -97,4 +103,52 @@ export const moveToWishlistFromCart = (product) => {
         type:MOVE_TO_WISHLIST_FROM_CART,
         payload: product
     }
+}
+
+// action creator for sorting product from low to high
+export const sortProductsLowToHigh = (products) => {
+    return {
+        type: SORT_PRODUCTS_LOW_TO_HIGH,
+        products,
+    };
+}
+
+// action creator for sorting product from high to low
+export const sortProductsHighToLow = (products) => {
+    return {
+        type: SORT_PRODUCTS_HIGH_TO_LOW,
+        products,
+    };
+}
+
+// action creator for sorting product by latest
+export const sortByLatest = (products) => {
+    return {
+        type: SORT_BY_LATEST,
+        products,
+    };
+}
+
+// action creator for sorting product by Electronics category
+export const sortByElectronics = (products) => {
+    return {
+        type: SORT_BY_ELECTRONICS,
+        products,
+    };
+}
+
+// action creator for sorting product by Home and kitchen category
+export const sortByHomeAndKitchen = (products) => {
+    return {
+        type: SORT_BY_HOME_AND_KITCHEN,
+        products,
+    };
+}
+
+// action creator for sorting product by All category
+export const sortByAll = (products) => {
+    return {
+        type: SORT_BY_CATEGORY_ALL,
+        products,
+    };
 }

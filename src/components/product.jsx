@@ -7,6 +7,8 @@ import {
   faTrash,
   faBagShopping,
   faAngleRight,
+  faArrowUp,
+  faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -14,6 +16,10 @@ import {
   fetchProducts,
   removeProduct,
   showDetails,
+  sortByAll,
+  sortByElectronics,
+  sortProductsHighToLow,
+  sortProductsLowToHigh,
 } from "../Redux/Actions/Action";
 import styles from "../styles/product.module.css";
 import Navbar from "./Navbar";
@@ -80,6 +86,34 @@ function Product() {
     toast.success("created");
   };
 
+  // short high to low
+  const sortHighToLow = (products) =>{
+    dispatch(sortProductsHighToLow(products))
+  }
+
+  // sort low to high
+
+  const sortLowToHigh = (products) => {
+    dispatch(sortProductsLowToHigh(products))
+  }
+
+  // sort all
+
+  const sortAll = (products) => {
+    dispatch(sortByAll(products))
+  }
+
+  // sort Electronis 
+   const sortElectronics = (products) => {
+    dispatch(sortByElectronics(products))
+   }
+
+  // sort Kitchen
+  const sortKitchen = (products) =>{
+  console.log(products)
+  }
+
+
   const addProductToWishlist = (product) => {
     let flag = true;
     if (localStorage.getItem("wishlist")) {
@@ -108,6 +142,21 @@ function Product() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
+            
+            <div className={styles.shortByPrice}>
+              <div className={styles.shortHigh}>
+                <FontAwesomeIcon icon={faArrowUp} onClick={() => sortHighToLow(products)} />
+              </div>
+              <div className={styles.shortLow}>
+                <FontAwesomeIcon icon={faArrowDown} onClick={() => sortLowToHigh(products)} />
+              </div>
+            </div>
+            <div className={styles.sortCategory} >
+               <div className={styles.all} onClick={() =>sortAll(products)}>All </div>
+               <div className={styles.kitchen} onClick={() =>sortKitchen(products)}> Kitchen</div>
+               <div className={styles.electronics} onClick={() =>sortElectronics(products)}> Electronics</div>
+            </div>
+            
             <div className={styles.cardBox}>
               {item.map((product) => {
                 const { name, id, image } = product;

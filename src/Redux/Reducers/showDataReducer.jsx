@@ -3,6 +3,10 @@ import {
   FETCH_PRODUCTS,
   REMOVE_PRODUCT,
   SHOW_DETAILS,
+  SORT_BY_CATEGORY_ALL,
+  SORT_BY_ELECTRONICS,
+  SORT_PRODUCTS_HIGH_TO_LOW,
+  SORT_PRODUCTS_LOW_TO_HIGH,
 } from "../Actions/Action";
 
 const initialState = {
@@ -51,14 +55,54 @@ export const showDataReducer = (state = initialState, action) => {
         products: [...state.products],
       };
 
-     case SHOW_DETAILS:
-      const updatedProducts = state.products.map(item =>
+    case SHOW_DETAILS:
+      const updatedProducts = state.products.map((item) =>
         item.id === action.payload ? { ...item, showDetails: true } : item
       );
-      return{
+      return {
         ...state,
-        products:updatedProducts
-      } 
+        products: updatedProducts,
+      };
+
+    case SORT_PRODUCTS_HIGH_TO_LOW:
+      const sortedProductHighToLow = [...state.products].sort((a, b) => {
+        return b.price - a.price; // sort by price high to low
+      });
+      return {
+        ...state,
+        products: sortedProductHighToLow,
+      };
+
+    case SORT_PRODUCTS_LOW_TO_HIGH:
+      const sortedProductLowTohigh = [...state.products].sort((a, b) => {
+        return a.price - b.price;
+      });
+      return {
+        ...state,
+        products: sortedProductLowTohigh,
+      };
+
+    case SORT_BY_CATEGORY_ALL:
+      const allProductsLocalStorage = JSON.parse(
+        localStorage.getItem("product")
+      );
+      return {
+        ...state,
+        products: allProductsLocalStorage,
+      };
+
+    case SORT_BY_ELECTRONICS:
+      const allProductsLocalStorage1 = JSON.parse(
+        localStorage.getItem("allProducts")
+      );
+      const electronics = allProductsLocalStorage1.filter(
+        (product) => product.category === "Electronics"
+      );
+      console.log(electronics, "electronics");
+      return {
+        ...state,
+        products: electronics,
+      };
 
     default:
       return state;
