@@ -130,18 +130,16 @@ export const sortByLatest = (products) => {
 }
 
 // action creator for sorting product by Electronics category
-export const sortByElectronics = (products) => {
+export const sortByElectronics = () => {
     return {
         type: SORT_BY_ELECTRONICS,
-        products,
     };
 }
 
 // action creator for sorting product by Home and kitchen category
-export const sortByHomeAndKitchen = (products) => {
+export const sortByHomeAndKitchen = () => {
     return {
         type: SORT_BY_HOME_AND_KITCHEN,
-        products,
     };
 }
 

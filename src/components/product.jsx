@@ -18,6 +18,7 @@ import {
   showDetails,
   sortByAll,
   sortByElectronics,
+  sortByHomeAndKitchen,
   sortProductsHighToLow,
   sortProductsLowToHigh,
 } from "../Redux/Actions/Action";
@@ -31,12 +32,12 @@ import starIcon from "../assets/icons/star.svg";
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
   const [item, setItem] = useState([]);
-  const [ hide, setHide ] = useState(false);
+  const [hide, setHide] = useState(false);
 
-  const handleClick = (id) =>{
-    dispatch(showDetails(id))
-    setHide(!hide)
-  }
+  const handleClick = (id) => {
+    dispatch(showDetails(id));
+    setHide(!hide);
+  };
 
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
   const dispatch = useDispatch();
@@ -87,32 +88,32 @@ function Product() {
   };
 
   // short high to low
-  const sortHighToLow = (products) =>{
-    dispatch(sortProductsHighToLow(products))
-  }
+  const sortHighToLow = (products) => {
+    dispatch(sortProductsHighToLow(products));
+  };
 
   // sort low to high
 
   const sortLowToHigh = (products) => {
-    dispatch(sortProductsLowToHigh(products))
-  }
+    dispatch(sortProductsLowToHigh(products));
+  };
 
   // sort all
 
   const sortAll = (products) => {
-    dispatch(sortByAll(products))
-  }
+    dispatch(sortByAll(products));
+  };
 
-  // sort Electronis 
-   const sortElectronics = (products) => {
-    dispatch(sortByElectronics(products))
-   }
+  // sort Electronis
+  const sortElectronics = (products) => {
+    dispatch(sortByElectronics(products));
+  };
 
   // sort Kitchen
-  const sortKitchen = (products) =>{
-  console.log(products)
+  const sortKitchen = (products) => {
+    dispatch(sortByHomeAndKitchen())
+    console.log()
   }
-
 
   const addProductToWishlist = (product) => {
     let flag = true;
@@ -142,21 +143,41 @@ function Product() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
-            
+
             <div className={styles.shortByPrice}>
               <div className={styles.shortHigh}>
-                <FontAwesomeIcon icon={faArrowUp} onClick={() => sortHighToLow(products)} />
+                <FontAwesomeIcon
+                  icon={faArrowUp}
+                  onClick={() => sortHighToLow(products)}
+                />
               </div>
               <div className={styles.shortLow}>
-                <FontAwesomeIcon icon={faArrowDown} onClick={() => sortLowToHigh(products)} />
+                <FontAwesomeIcon
+                  icon={faArrowDown}
+                  onClick={() => sortLowToHigh(products)}
+                />
               </div>
             </div>
-            <div className={styles.sortCategory} >
-               <div className={styles.all} onClick={() =>sortAll(products)}>All </div>
-               <div className={styles.kitchen} onClick={() =>sortKitchen(products)}> Kitchen</div>
-               <div className={styles.electronics} onClick={() =>sortElectronics(products)}> Electronics</div>
+            <div className={styles.sortCategory}>
+              <div className={styles.all} onClick={() => sortAll(products)}>
+                All{" "}
+              </div>
+              <div
+                className={styles.kitchen}
+                onClick={() => sortKitchen(products)}
+              >
+                {" "}
+                Kitchen
+              </div>
+              <div
+                className={styles.electronics}
+                onClick={() => sortElectronics(products)}
+              >
+                {" "}
+                Electronics
+              </div>
             </div>
-            
+
             <div className={styles.cardBox}>
               {item.map((product) => {
                 const { name, id, image } = product;
@@ -164,7 +185,9 @@ function Product() {
                   <div key={id}>
                     <div
                       style={{
-                        background: `url("${image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`,
+                        background: product.colorPalette
+                          ? `url("${image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`
+                          : " ",
                       }}
                       className={styles.imgBox}
                     >
@@ -239,15 +262,14 @@ function Product() {
 
                         <div className={styles.detailsCard}>
                           <p>
-                          <FontAwesomeIcon
-                            icon={faAngleRight}
-                            className={styles.arrow}
-                            onClick={() =>handleClick(id)}
-                          />
+                            <FontAwesomeIcon
+                              icon={faAngleRight}
+                              className={styles.arrow}
+                              onClick={() => handleClick(id)}
+                            />
                           </p>
-                          <div className={hide ? styles.cardBody : styles.cardBody1}></div>
-                          
-                          </div>
+                          <div className={hide ? styles.cardBody : ""}></div>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -5,21 +5,25 @@ import {
   SHOW_DETAILS,
   SORT_BY_CATEGORY_ALL,
   SORT_BY_ELECTRONICS,
+  SORT_BY_HOME_AND_KITCHEN,
   SORT_PRODUCTS_HIGH_TO_LOW,
   SORT_PRODUCTS_LOW_TO_HIGH,
 } from "../Actions/Action";
 
 const initialState = {
   loading: true,
+  allProducts: [],
   products: [],
 };
 export const showDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCTS:
+
       return {
         ...state,
         loading: false,
         products: action.payload,
+        allProducts: action.payload,
       };
 
     case REMOVE_PRODUCT: {
@@ -86,24 +90,38 @@ export const showDataReducer = (state = initialState, action) => {
       const allProductsLocalStorage = JSON.parse(
         localStorage.getItem("product")
       );
+      const allItem = [...state.allProducts, ...allProductsLocalStorage];
       return {
         ...state,
-        products: allProductsLocalStorage,
+        products: allItem,
       };
 
     case SORT_BY_ELECTRONICS:
       const allProductsLocalStorage1 = JSON.parse(
-        localStorage.getItem("allProducts")
+        localStorage.getItem("product")
       );
-      const electronics = allProductsLocalStorage1.filter(
+      const items = [...state.allProducts, ...allProductsLocalStorage1];
+
+      const electronics = items.filter(
         (product) => product.category === "Electronics"
       );
-      console.log(electronics, "electronics");
+      console.l;
       return {
         ...state,
         products: electronics,
       };
+    case SORT_BY_HOME_AND_KITCHEN:
+      const kitchenstorage = JSON.parse(localStorage.getItem("product"));
+      const kitchenItem = [...state.allProducts, ...kitchenstorage];
 
+      const kitchen = kitchenItem.filter(
+        (product) => product.category === "Home & Kitchen"
+      );
+      console.log(kitchen);
+      return {
+        ...state,
+        products: kitchen,
+      };
     default:
       return state;
   }

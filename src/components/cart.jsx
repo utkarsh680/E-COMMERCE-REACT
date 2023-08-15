@@ -60,6 +60,26 @@ function Cart() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
+            <div className={styles.checkOut}>
+            {
+                    // iterate over the cart items
+                    cartItems.map((item, index) => {
+                        return (
+                            <div key={index} className={styles.product}>
+                                <p className={styles.index}>
+                                    {' '}
+                                    {index + 1}.{' '}
+                                </p>
+                                <p className={styles.productName}>
+                                    {item.name.substring(0, 17)}
+                                </p>
+                                <p className={styles.qty}>1</p>
+                            </div>
+                        );
+                    })
+                }
+
+            </div>
             <div className={styles.cardBox}>
               {cartItems.map((product) => {
                 const { name, id, image } = product;
