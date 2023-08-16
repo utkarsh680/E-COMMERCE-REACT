@@ -2,7 +2,6 @@
   height: 100vh;
   width: 100vw;
   background-color: #cfd8d9;
- 
 }
 .itemContainer {
   height: 100%;
@@ -31,7 +30,6 @@
   background-color: rgba(255, 255, 0, 0.572);
   border-radius: 30px;
   box-shadow: 3px 4px 30px rgba(242, 242, 43, 0.572);
-  
 }
 .box {
   height: 80%;
@@ -41,7 +39,6 @@
   box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
   border-radius: 10px;
   rotate: 2deg;
-  
 }
 .inBox {
   height: 100%;
@@ -54,15 +51,13 @@
   box-shadow: 1px 1px 10px inset rgb(135, 134, 134);
   border-radius: 10px;
   rotate: -2deg;
- 
 }
-.sortCategory{
+.sortCategory {
   position: absolute;
   right: 0;
   top: 50px;
   padding: 40px;
   cursor: pointer;
-
 }
 
 .cardBox {
@@ -75,7 +70,7 @@
   column-gap: 2rem;
   flex-wrap: wrap;
   max-width: 80%;
-  padding: 10px; 
+  padding: 10px;
 }
 .cardBox::-webkit-scrollbar {
   display: none;
@@ -89,8 +84,7 @@
   background-size: contain;
   margin: 10px;
   background-repeat: no-repeat !important;
-  border-radius: 20px; 
-  
+  border-radius: 20px;
 }
 .overlay {
   display: flex;
@@ -104,7 +98,6 @@
   height: inherit;
   width: inherit;
   border-radius: 20px;
-  
 }
 
 .overlay .image {
@@ -114,7 +107,6 @@
   position: relative;
   top: -20px;
   left: -15px;
-  
 }
 
 .image img {
@@ -253,7 +245,7 @@
   border-color: white;
 }
 
- .arrow{
+.arrow {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -265,14 +257,142 @@
 }
 
 
-.cardBody{
+.detailsCard{
   position: absolute;
   height: 200px;
   width: 370px;
-  background-color:#dee1e5;
-  left:23px;
+  background-color: #dee1e5;
+  left: 20px;
   bottom: 30px;
   border-radius: 20px 20px 20px 5px;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+.menuBox{
+position: absolute;
+left: 10px;
+top: 120px;
+}
+
+.menuButton {
+  font-size: 1.3rem; 
+  height: 130px;
+  width: 140px;
+  left: 0;
+  top: 0;
+}
+
+.shortByPrice {
+  background-color: #c8c6ca;
+  box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
+  height: 130px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  
+}
+.shortLatest {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  cursor: pointer;
+  
+}
+
+.shortLatest .dotIcon {
+  color: green;
+  font-size: 0.5rem;
+}
+.shortLatest p {
+  color: black;
+}
+.shortLatest span {
+  font-size: 0.8rem;
+  margin-top: -4px;
+  color: rgb(70, 69, 69);
  
+}
+
+.shortHigh {
+  display: flex;
+  gap: 5px;
+  padding: 7px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.shortLow {
+  display: flex;
+  gap: 5px;
+  padding: 7px;
+  justify-content: center;
+  cursor: pointer;
+}
+.barIcon {
+  position: absolute;
+  right: -1px;
+  top: -30px;
+  cursor: pointer;
+}
+.borderBottom{
+  border-bottom: 1px solid rgb(133, 130, 130);
+  width: 140px;
+  margin-top: -5px; 
+}
+
+.shortLatest p:hover {
+ color: #0c59cd;
+ transition: all 0.3s ease;
+}
+.shortHigh:hover {
+  color: #0c59cd;
+  transition: all 0.3s ease;
+}
+
+.shortLow:hover {
+  color: #0c59cd;
+  transition: all 0.3s ease;
+}
+
+
+/* categorty sort */
+
+.categoryBox{
+  position: absolute;
+  
+}
+.sortCategory {
+  font-size: 1.3rem; 
+  height: 130px;
+  width: 140px;
+  left: 0;
+  top: 0;
+}
+
+.shortByPrice {
+  background-color: #c8c6ca;
+  box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
+  height: 130px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  
 }

@@ -38,6 +38,7 @@ function AddData() {
           <div className={styles.inBox}>
             <Navbar />
 
+            <div className={styles.cardBox}>
             <input
               type="text"
               value={name}
@@ -46,6 +47,7 @@ function AddData() {
             />
             <button onClick={handleAddTask}>Add Task</button>
             {name}
+            </div>
           </div>
         </div>
       </div>

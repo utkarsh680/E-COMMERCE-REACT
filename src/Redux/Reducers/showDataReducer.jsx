@@ -105,7 +105,7 @@ export const showDataReducer = (state = initialState, action) => {
       const electronics = items.filter(
         (product) => product.category === "Electronics"
       );
-      console.l;
+      
       return {
         ...state,
         products: electronics,

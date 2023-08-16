@@ -1,5 +1,6 @@
 import { Provider } from "react-redux";
-import { Home, Product, Cart, Wishlist, AddData } from "./components";
+import { Home,AddData} from "./components";
+import { Product, Cart, Wishlist} from "./pages";
 import "./App.css";
 import store from "./Redux/Store";
 import { Route, Routes } from "react-router-dom";

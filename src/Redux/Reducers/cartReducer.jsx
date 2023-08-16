@@ -3,6 +3,7 @@ import { ADD_TO_CART, MOVE_TO_WISHLIST_FROM_CART, REMOVE_FROM_CART } from "../Ac
 const initialState = {
   loading: true,
   cartList: [],
+  totalPrice: localStorage.getItem('totalPrice') ? localStorage.getItem('totalPrice') : 0
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -18,9 +19,21 @@ export const cartReducer = (state = initialState, action) => {
       }else{
         localStorage.setItem('cart', JSON.stringify([...state.cartList, action.payload]))
       }
+
+      const totalPrice = localStorage.getItem('totalPrice');
+      console.log(totalPrice)
+
+      // add total price to local storage
+      if (totalPrice) {
+        localStorage.setItem('totalPrice', JSON.stringify(parseInt(localStorage.getItem('totalPrice')) + Math.round(parseFloat(action.payload.price))));
+    } else {
+        localStorage.setItem('totalPrice', JSON.stringify(Math.round(parseFloat(action.payload.price))));
+    }
+
       return {
         ...state,
         cartList: [...state.cartList, action.payload],
+        totalPrice: state.totalPrice + Math.round(parseFloat(action.payload.price)),
       };
 
     case REMOVE_FROM_CART:
@@ -30,9 +43,19 @@ export const cartReducer = (state = initialState, action) => {
       }
       const updatedItem = items.filter((item) => item.id !== action.payload)
       localStorage.setItem('cart', JSON.stringify(updatedItem))
+
+      if (updatedItem.length !== 0) {
+        // update total price in local storage
+        localStorage.setItem('totalPrice', JSON.stringify(localStorage.getItem('totalPrice') - Math.round(parseFloat(action.payload.price))));
+    } else {
+        localStorage.setItem('totalPrice', JSON.stringify(0));
+    }
+
       return {
         ...state,
         cartList: updatedItem,
+        totalPrice: state.totalPrice - Math.round(parseFloat(action.payload.price))
+    
       };
 
     case MOVE_TO_WISHLIST_FROM_CART:

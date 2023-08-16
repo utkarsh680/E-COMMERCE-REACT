@@ -1,8 +1,8 @@
-import Cart from "./Cart";
 import Home from "./Home";
-import Navbar from "./Navbar";
-import Product from "./Product";
-import Wishlist from "./wishlist";
+import ProductsCard from "./ProductsCard";
 import AddData from "./AddData";
+import CartCard from "./CartCard";
+import WishlistCard from "./WishlistCard";
 
-export {Cart, Home, Navbar, Product, Wishlist, AddData}
+
+export { Home, ProductsCard, AddData, CartCard, WishlistCard};
