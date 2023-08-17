@@ -47,6 +47,7 @@ function WishlistCard(props) {
     }
    
   return (
+   
     <div key={id}>
       <div
         style={{
@@ -95,7 +96,9 @@ function WishlistCard(props) {
         </div>
       </div>
     </div>
+            
   );
 }
+
 
 export default WishlistCard;

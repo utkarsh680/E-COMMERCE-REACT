@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import styles from "../styles/wishlist.module.css";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { WishlistCard } from "../components";
 
 function Wishlist() {
@@ -31,14 +31,15 @@ function Wishlist() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
-            <div className={styles.cardBox}>
-              {wishlistItems.map((product) => {
-                
-                return (
-                  <WishlistCard product = {product} key = {product.id} />
-                );
-              })}
-            </div>
+            {wishlistItems.length === 0 ? (
+              <p>No items in the cart.</p>
+            ) : (
+              <div className={styles.cardBox}>
+                {wishlistItems.map((product) => {
+                  return <WishlistCard product={product} key={product.id} />;
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>

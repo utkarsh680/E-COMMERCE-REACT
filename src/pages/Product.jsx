@@ -126,8 +126,9 @@ function Product() {
                   onClick={() => handleClick()}
                 />
 
-                {showMenu && (
+                {showMenu ? (
                   <div className={styles.shortByPrice}>
+
                     <div
                       className={styles.shortLatest}
                       onClick={() => sortLatest()}
@@ -156,7 +157,7 @@ function Product() {
                       <p>High To Low</p>
                     </div>
                   </div>
-                )}
+                ): ' '}
               </div>
             </div>
             <div className={styles.itemCategory}>

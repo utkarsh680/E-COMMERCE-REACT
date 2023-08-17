@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import styles from "../styles/cart.module.css";
 import { useSelector} from "react-redux";
 import { CartCard } from "../components";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Cart() {
   const myData = useSelector((state) => state.cartReducer.cartList);
   const total = useSelector ((state) => state.cartReducer.totalPrice)
@@ -21,7 +23,6 @@ function Cart() {
   }, [localStorage.getItem("cart")]);
 
 
-
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
@@ -32,6 +33,7 @@ function Cart() {
           <div className={styles.inBox}>
             <Navbar product = {myData}/>
             <div className={styles.checkOut}>
+              <div className={styles.checkOutData}>
               {
                 // iterate over the cart items
                 cartItems.map((item, index) => {
@@ -53,10 +55,11 @@ function Cart() {
                   );
                 })
               }
+              </div>
               <div className={styles.nextStepButton}>
                         <p className={styles.totalPrice}> ${total} </p>
-                        <button>
-                            {/* Checkout <FontAwesomeIcon icon={faArrowRight} />{' '} */}
+                        <button> Checkout <FontAwesomeIcon icon={faArrowRight} />{' '}
+                           
                         </button>
               </div>
               

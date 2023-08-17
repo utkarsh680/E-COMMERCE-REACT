@@ -15,7 +15,6 @@ import starIcon from "../assets/icons/star.svg";
 import {
   addToCart,
   addToWishlist,
-  fetchProducts,
   removeProduct,
 } from "../Redux/Actions/Action";
 import { toast } from "react-toastify";

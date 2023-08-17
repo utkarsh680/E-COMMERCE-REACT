@@ -227,7 +227,7 @@ button:hover .deleteIcon {
 .checkOut{
   display: flex;
   position: absolute;
-  justify-content: start;
+  justify-content:space-between;
   font-size: 1rem;
   gap: 0.5rem;
   bottom: 30px;
@@ -236,6 +236,29 @@ button:hover .deleteIcon {
   border-radius: 20px;
   background-color: #e2e3e9;
   box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
+}
+.checkOutData{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nextStepButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+button{
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+button:hover{
+  background-color: gray;
+  
 }
 
 .ItemBox{
