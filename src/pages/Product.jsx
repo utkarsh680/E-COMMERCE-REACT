@@ -25,6 +25,8 @@ function Product() {
 
   const [showMenu, setShowMenu] = useState(false);
   const [hideMenu, setHideMenu] = useState(false);
+
+  const [showCategory, setShowCategory] = useState(false);
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
 
   const handleClick = () => {
@@ -61,6 +63,12 @@ function Product() {
     getProducts();
   }, []);
 
+  //sort latest
+
+  const sortLatest = () => {
+    getProducts();
+  };
+
   // short high to low
   const sortHighToLow = (products) => {
     dispatch(sortProductsHighToLow(products));
@@ -74,20 +82,32 @@ function Product() {
 
   // sort all
 
-  const sortAll = (products) => {
-    dispatch(sortByAll(products));
+  const sortAll = () => {
+    dispatch(sortByAll());
   };
 
   // sort Electronis
-  const sortElectronics = (products) => {
-    dispatch(sortByElectronics(products));
+  const sortElectronics = () => {
+    dispatch(sortByElectronics());
   };
 
   // sort Kitchen
-  const sortKitchen = (products) => {
+  const sortKitchen = () => {
     dispatch(sortByHomeAndKitchen());
     console.log();
   };
+  
+  const handleCategoryClick = () =>{
+    if (showCategory) {
+      setShowCategory(!showCategory);
+      setTimeout(() => {
+        setShowMenu(false);
+      }, 500);
+    } else {
+      setShowCategory(!showCategory);
+    }
+  }
+ 
 
   return (
     <div className={styles.homeContainer}>
@@ -110,7 +130,7 @@ function Product() {
                   <div className={styles.shortByPrice}>
                     <div
                       className={styles.shortLatest}
-                      onClick={() => sortHighToLow(products)}
+                      onClick={() => sortLatest()}
                     >
                       <FontAwesomeIcon
                         icon={faDotCircle}
@@ -139,32 +159,32 @@ function Product() {
                 )}
               </div>
             </div>
-            <div className={styles.categoryBox}>
-              
-                <div className={styles.categoryButton}>
-              <FontAwesomeIcon icon={faArrowDown} />
-              <div className={styles.sortCategory}>
-                <div className={styles.all} onClick={() => sortAll(products)}>
+            <div className={styles.itemCategory}>
+              <div className={styles.categoryButton} onClick={() => handleCategoryClick()}>
+                <p>Category</p>
+                <FontAwesomeIcon icon={faArrowDown} />
+              </div>
+              {showCategory &&
+              <div className={styles.categoryBox}>
+                <div className={styles.all} onClick={() => sortAll()}>
                   All{" "}
                 </div>
-                <div
-                  className={styles.kitchen}
-                  onClick={() => sortKitchen(products)}
-                >
+                
+                <div className={styles.kitchen} onClick={() => sortKitchen()}>
                   {" "}
                   Kitchen
                 </div>
+                
                 <div
                   className={styles.electronics}
-                  onClick={() => sortElectronics(products)}
+                  onClick={() => sortElectronics()}
                 >
                   {" "}
                   Electronics
                 </div>
               </div>
-              </div>
+               }
             </div>
-
             <div className={styles.cardBox}>
               {item.map((product) => {
                 return <ProductsCard product={product} key={product.id} />;

@@ -8,7 +8,7 @@ export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
 export const  ADD_PRODUCT = 'ADD_PRODUCT'
 export const SORT_PRODUCTS_LOW_TO_HIGH ='SORT_PRODUCTS_LOW_TO_HIGH'
 export const SORT_PRODUCTS_HIGH_TO_LOW = 'SORT_PRODUCTS_HIGH_TO_LOW'
-export const SORT_BY_LATEST = 'SORT_BY_LATEST'
+// export const SORT_BY_LATEST = 'SORT_BY_LATEST'
 export const SORT_BY_ELECTRONICS = 'SORT_BY_ELECTRONICS'
 export const SORT_BY_HOME_AND_KITCHEN = 'SORT_BY_HOME_AND_KITCHEN'
 export const SORT_BY_CATEGORY_ALL = 'SORT_BY_CATEGORY_ALL'
@@ -105,6 +105,7 @@ export const moveToWishlistFromCart = (product) => {
     }
 }
 
+
 // action creator for sorting product from low to high
 export const sortProductsLowToHigh = (products) => {
     return {
@@ -121,13 +122,13 @@ export const sortProductsHighToLow = (products) => {
     };
 }
 
-// action creator for sorting product by latest
-export const sortByLatest = (products) => {
-    return {
-        type: SORT_BY_LATEST,
-        products,
-    };
-}
+// // action creator for sorting product by latest
+// export const sortByLatest = (products) => {
+//     return {
+//         type: SORT_BY_LATEST,
+//         products,
+//     };
+// }
 
 // action creator for sorting product by Electronics category
 export const sortByElectronics = () => {
