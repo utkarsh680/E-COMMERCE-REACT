@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import styles from "../styles/wishlist.module.css";
 import { useSelector } from "react-redux";
 import { WishlistCard } from "../components";
+import { Link } from "react-router-dom";
+
 
 function Wishlist() {
   const myData = useSelector((state) => state.wishlistReducer.wishList); //Data from state
@@ -32,7 +34,10 @@ function Wishlist() {
           <div className={styles.inBox}>
             <Navbar />
             {wishlistItems.length === 0 ? (
-              <p>No items in the cart.</p>
+              <div className={styles.emptyWishlist}>
+              <p>No items in the wishlist.</p>
+              <Link to="/product" className={styles.browseProduct}>Browse Products</Link>
+              </div>
             ) : (
               <div className={styles.cardBox}>
                 {wishlistItems.map((product) => {

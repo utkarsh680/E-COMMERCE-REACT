@@ -42,20 +42,20 @@ padding: 1px;
 border-radius: 10px;
 rotate: 2deg;
 background-color: #e2e3e9;
-box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
+border: 1px solid  grey;
 }
 .inBox{
 height: 100%;
 width: 100%;
 flex-wrap: wrap;
 max-width: 100%;
-background-color: #e5e4e9;
-box-shadow: 1px 1px 10px inset rgb(135, 134, 134);
-border-radius: 10px;
-rotate: -2deg;
 display: flex;
 justify-content: center;
-align-items: center;
+background-color: #e5e4e9;
+border: 1px solid grey;
+border-radius: 10px;
+rotate: -2deg;
+
 }
 
 .cardBox{
