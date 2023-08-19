@@ -16,7 +16,7 @@ function Navbar(props) {
           <Link to="/">
             Deal<span>new</span>
           </Link>
-          <Link to="/addData">Add Data</Link>
+          <Link to="/addProduct">Add Products</Link>
         </li>
       </ul>
     </div>

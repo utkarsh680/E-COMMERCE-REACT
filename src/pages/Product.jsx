@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import {
   faArrowUp,
   faArrowDown,
@@ -22,6 +23,7 @@ import { ProductsCard } from "../components";
 
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
+  console.log(products)
 
   const [showMenu, setShowMenu] = useState(false);
   const [hideMenu, setHideMenu] = useState(false);
@@ -118,6 +120,13 @@ function Product() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
+            {item.length === 0 ? (
+              <div className={styles.emptyProduct}>
+              <p>No items in the Product.</p>
+              <Link to="/addProduct" className={styles.browseProduct}>Add Products</Link>
+              </div>
+            ) : (
+              <>
             <div className={styles.menuBox}>
               <div className={styles.menuButton}>
                 <FontAwesomeIcon
@@ -143,7 +152,7 @@ function Product() {
                     <div className={styles.borderBottom}></div>
                     <div
                       className={styles.shortHigh}
-                      onClick={() => sortHighToLow(products)}
+                      onClick={() => sortLowToHigh(products)}
                     >
                       <FontAwesomeIcon icon={faArrowUp} />
                       <p>Low to High</p>
@@ -151,7 +160,7 @@ function Product() {
                     <div className={styles.borderBottom}></div>
                     <div
                       className={styles.shortLow}
-                      onClick={() => sortLowToHigh(products)}
+                      onClick={() => sortHighToLow(products)}
                     >
                       <FontAwesomeIcon icon={faArrowDown} />
                       <p>High To Low</p>
@@ -191,6 +200,8 @@ function Product() {
                 return <ProductsCard product={product} key={product.id} />;
               })}
             </div>
+            </>
+            )}
           </div>
         </div>
       </div>

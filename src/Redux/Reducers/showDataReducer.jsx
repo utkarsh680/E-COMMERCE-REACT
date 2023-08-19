@@ -48,16 +48,26 @@ export const showDataReducer = (state = initialState, action) => {
     case ADD_PRODUCT:
       const addDataToStorage = JSON.parse(localStorage.getItem("product"));
       if (addDataToStorage) {
-        const newItem = [...addDataToStorage, action.payload];
+        const newItem = [action.payload,...addDataToStorage];
         // add to localStorage
         localStorage.setItem("product", JSON.stringify(newItem));
       } else {
         localStorage.setItem("product", JSON.stringify([action.payload]));
       }
+
+        // add to all products local storage
+        const allProducts = JSON.parse(localStorage.getItem('allProducts'))
+        if(allProducts) {
+          localStorage.setItem('allProducts', JSON.stringify([action.product, ...allProducts]))
+        }else{
+          localStorage.setItem('allProducts', JSON.stringify([action.product]))
+        }
+        console.log("hihi", allProducts)
       return {
         ...state,
-        products: [...state.products],
+        products: [action.payload, ...JSON.parse(localStorage.getItem('product'))], 
       };
+    
 
     case SHOW_DETAILS:
       const updatedProducts = state.products.map((item) =>
@@ -69,9 +79,11 @@ export const showDataReducer = (state = initialState, action) => {
       };
 
     case SORT_PRODUCTS_HIGH_TO_LOW:
-      const sortedProductHighToLow = [...state.products].sort((a, b) => {
+      const combinedProducts = [...state.products];
+      const sortedProductHighToLow = combinedProducts.sort((a, b) => {
         return b.price - a.price; // sort by price high to low
       });
+    
       return {
         ...state,
         products: sortedProductHighToLow,
@@ -81,6 +93,7 @@ export const showDataReducer = (state = initialState, action) => {
       const sortedProductLowTohigh = [...state.products].sort((a, b) => {
         return a.price - b.price;
       });
+
       return {
         ...state,
         products: sortedProductLowTohigh,
