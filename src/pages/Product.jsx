@@ -23,7 +23,6 @@ import { ProductsCard } from "../components";
 
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
-  console.log(products)
 
   const [showMenu, setShowMenu] = useState(false);
   const [hideMenu, setHideMenu] = useState(false);
@@ -44,7 +43,6 @@ function Product() {
   };
 
   const dispatch = useDispatch();
-  const [item, setItem] = useState([]);
   // fetch products from url
   const getProducts = async () => {
     const res = await fetch(`${url}/products`);
@@ -52,14 +50,6 @@ function Product() {
     dispatch(fetchProducts(result));
   };
 
-  useEffect(() => {
-    let items = [];
-    if (localStorage.getItem("product")) {
-      items = JSON.parse(localStorage.getItem("product"));
-    }
-    items = [...items, ...products];
-    setItem(items);
-  }, [products]);
 
   useEffect(() => {
     getProducts();
@@ -79,7 +69,7 @@ function Product() {
   // sort low to high
 
   const sortLowToHigh = (products) => {
-    dispatch(sortProductsLowToHigh(products));
+    dispatch(sortProductsLowToHigh(products)); // update state
   };
 
   // sort all
@@ -120,7 +110,7 @@ function Product() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar />
-            {item.length === 0 ? (
+            {products.length === 0 ? (
               <div className={styles.emptyProduct}>
               <p>No items in the Product.</p>
               <Link to="/addProduct" className={styles.browseProduct}>Add Products</Link>
@@ -196,7 +186,7 @@ function Product() {
                }
             </div>
             <div className={styles.cardBox}>
-              {item.map((product) => {
+              {products.map((product) => {
                 return <ProductsCard product={product} key={product.id} />;
               })}
             </div>

@@ -18,11 +18,17 @@ const initialState = {
 export const showDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PRODUCTS:
+      let newItems = [];
+      if (localStorage.getItem('product')) {
+        newItems = JSON.parse(localStorage.getItem('product'));
+      }
+      newItems = [...newItems, ...action.payload]
+
 
       return {
         ...state,
         loading: false,
-        products: action.payload,
+        products: newItems,
         allProducts: action.payload,
       };
 
@@ -92,20 +98,16 @@ export const showDataReducer = (state = initialState, action) => {
 
     case SORT_PRODUCTS_LOW_TO_HIGH:
       // const localStorage1 = JSON.parse(localStorage.getItem('product'));
-      const sortedProductLowTohigh = [...state.allProducts].sort((a, b) => {
-        return a.price - b.price;
-        
+      // const sortedProductLowTohigh = [...state.allProducts].sort((a, b) => {
+      //   return a.price - b.price;
+      // });
+      const sortedProduct =[...state.allProducts, ...JSON.parse(localStorage.getItem('product'))].sort((a, b) => {
+        return a.price - b.price; 
       });
-      const sortedProduc =[...state.allProducts, ...JSON.parse(localStorage.getItem('product'))].sort((a, b) => {
-        return a.price - b.price;
-        
-      });;
-      console.log('hey',sortedProduc)
-     
-
+      console.log('hey',sortedProduct)
       return {
         ...state,
-        products: sortedProduc,
+        products: sortedProduct,
       };
 
     case SORT_BY_CATEGORY_ALL:

@@ -154,7 +154,7 @@ export default function ProductsCard(props) {
             className={styles.arrow}
             onClick={() => handleClick()}
           />
-          {showDescription && <div className={styles.detailsCard}></div>}
+          {showDescription && <div className={styles.detailsCard}> {(product.description)? product.description : <h3>Description Not Available</h3>}</div>}
         </div>
       </div>
     </div>

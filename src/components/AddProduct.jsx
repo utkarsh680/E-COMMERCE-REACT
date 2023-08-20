@@ -23,9 +23,10 @@ function AddProduct() {
   const product = useSelector((state) => state.showDataReducer.products);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
-  const [rating, setRating] = useState("");
+  const [rating, setRating] = useState(0);
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
+  const [description, setDescription] = useState("");
 
   const id = uuidv4();
 
@@ -49,13 +50,15 @@ function AddProduct() {
       rating,
       category,
       price,
+      description
     };
     console.log(items);
     dispatch(addProduct({ items }));
-    setName(" ");
-    setRating(" ");
-    setCategory(" ");
-    setPrice(" ");
+    setName("");
+    setRating(0);
+    setCategory("");
+    setPrice(0);
+    setDescription("");
   };
 
   return (
@@ -81,29 +84,34 @@ function AddProduct() {
                     <p className={styles.category}>
                       {" "}
                       <img src={categoryIcon} alt="" />
-                      <select value={category}
-                        onChange={(e) => setCategory(e.target.value)}>
+                      <select
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                      >
                         <option value="">Category</option>
                         <option value="Home & kitchen">Home & Kitchen</option>
                         <option value="Electronics">Electronics</option>
                       </select>
-                     
                     </p>
                     <div className={styles.rating}>
                       {" "}
                       <div>
-                      <select value={rating}
-                      onChange={(e) => setRating(e.target.value)}
-                      >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
+                        <select
+                          value={rating}
+                          onChange={(e) => setRating(e.target.value)}
+                        >
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
                       </div>
-                     <div className={styles.outOff}> / 5 <img src={starIcon} alt="" /></div>
+                      <div className={styles.outOff}>
+                        {" "}
+                        / 5 <img src={starIcon} alt="" />
+                      </div>
                     </div>
                   </div>
                   <div className={styles.price}>
@@ -147,7 +155,13 @@ function AddProduct() {
                   className={styles.arrow}
                   onClick={() => handleClick()}
                 />
-                {showDescription && <div className={styles.detailsCard}></div>}
+                {showDescription && (
+                  <div className={styles.detailsCard}>
+                    <textarea value={description} placeholder = "Add Description here...." onChange={(e) => setDescription(e.target.value)}>
+                      Enter text here...
+                    </textarea>
+                  </div>
+                )}
               </div>
             </div>
           </div>

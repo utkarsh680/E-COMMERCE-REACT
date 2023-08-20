@@ -259,13 +259,25 @@
 
 .detailsCard{
   position: absolute;
+  display: flex;
+  justify-content: center;
   height: 200px;
   width: 370px;
   background-color: #dee1e5;
-  left: 20px;
+  left: 22px;
   bottom: 30px;
   border-radius: 20px 20px 20px 5px;
   transition: all 0.3s ease;
+  font-size: 1.1rem;
+  padding: 15px;
+  overflow: scroll;
+}
+.detailsCard::-webkit-scrollbar{
+  display: none;
+}
+
+.detailsCard h3{
+  color: gray;
 }
 
 .menuBox{
