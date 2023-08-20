@@ -56,16 +56,17 @@ export const showDataReducer = (state = initialState, action) => {
       }
 
         // add to all products local storage
-        const allProducts = JSON.parse(localStorage.getItem('allProducts'))
-        if(allProducts) {
-          localStorage.setItem('allProducts', JSON.stringify([action.product, ...allProducts]))
-        }else{
-          localStorage.setItem('allProducts', JSON.stringify([action.product]))
-        }
-        console.log("hihi", allProducts)
+
+        // const allProducts = JSON.parse(localStorage.getItem('allProducts'))
+        // if(allProducts) {
+        //   localStorage.setItem('allProducts', JSON.stringify([action.product, ...allProducts]))
+        // }else{
+        //   localStorage.setItem('allProducts', JSON.stringify([action.product]))
+        // }
+        // console.log("hihi", allProducts)
       return {
         ...state,
-        products: [action.payload, ...JSON.parse(localStorage.getItem('product'))], 
+        products: [action.payload], 
       };
     
 
@@ -90,13 +91,21 @@ export const showDataReducer = (state = initialState, action) => {
       };
 
     case SORT_PRODUCTS_LOW_TO_HIGH:
-      const sortedProductLowTohigh = [...state.products].sort((a, b) => {
+      // const localStorage1 = JSON.parse(localStorage.getItem('product'));
+      const sortedProductLowTohigh = [...state.allProducts].sort((a, b) => {
         return a.price - b.price;
+        
       });
+      const sortedProduc =[...state.allProducts, ...JSON.parse(localStorage.getItem('product'))].sort((a, b) => {
+        return a.price - b.price;
+        
+      });;
+      console.log('hey',sortedProduc)
+     
 
       return {
         ...state,
-        products: sortedProductLowTohigh,
+        products: sortedProduc,
       };
 
     case SORT_BY_CATEGORY_ALL:
@@ -130,7 +139,7 @@ export const showDataReducer = (state = initialState, action) => {
       const kitchen = kitchenItem.filter(
         (product) => product.category === "Home & Kitchen"
       );
-      console.log(kitchen);
+     
       return {
         ...state,
         products: kitchen,

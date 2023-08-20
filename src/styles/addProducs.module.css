@@ -153,7 +153,7 @@ rotate: -2deg;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    top: -30px;
+    top: -50px;
     height: 40%;
     width: 100%;
   }
@@ -224,15 +224,15 @@ rotate: -2deg;
     gap: 1rem;
     font-size: 1rem;
     color: white;
+    margin-top: 30px;
   }
   .price .name input{
     background: transparent;
     border: none;
     color: white;
     font-size: 1.5rem;
-    outline: none;
-   
-     text-align: center;
+    outline: none; 
+    text-align: center;
     display: flex;
     align-self: center;
     letter-spacing: 2px;
@@ -240,6 +240,28 @@ rotate: -2deg;
   }
   .price .name input:focus{
     border: none;
+  }
+
+  .price .dollor input{
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    outline: none; 
+    text-align: center;
+    display: flex;
+    align-self: center;
+    letter-spacing: 2px;
+    width: 80px;
+    /* padding: 0 0px 0 10px; */
+
+  }
+
+  .price .dollor{
+    display: flex;
+  }
+  .price span{
+    font-size: 1.4rem;
   }
 
 

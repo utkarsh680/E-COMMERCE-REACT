@@ -84,7 +84,7 @@ function AddProduct() {
                       <select value={category}
                         onChange={(e) => setCategory(e.target.value)}>
                         <option value="">Category</option>
-                        <option value="Home & kitchen">Home & kitchen</option>
+                        <option value="Home & kitchen">Home & Kitchen</option>
                         <option value="Electronics">Electronics</option>
                       </select>
                      
@@ -118,12 +118,13 @@ function AddProduct() {
                     </p>
                     <p className={styles.dollor}>
                       {" "}
-                      $
+                      <span>$</span>
                       {
                         <input
                           type="number"
                           value={price}
                           onChange={(e) => setPrice(e.target.value)}
+                          placeholder="00"
                         />
                       }{" "}
                     </p>
