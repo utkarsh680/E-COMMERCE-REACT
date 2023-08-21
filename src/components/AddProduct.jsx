@@ -3,7 +3,7 @@ import styles from "../styles/addProducs.module.css";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { toast } from "react-toastify";
 import { addProduct } from "../Redux/Actions/Action";
 import {
   faHeart,
@@ -52,8 +52,12 @@ function AddProduct() {
       price,
       description
     };
-    console.log(items);
     dispatch(addProduct({ items }));
+    toast.success('Product Added!', {
+      position: "top-right",
+      autoClose: 2000,
+      className: 'toast-message'
+    });
     setName("");
     setRating(0);
     setCategory("");
@@ -89,7 +93,7 @@ function AddProduct() {
                         onChange={(e) => setCategory(e.target.value)}
                       >
                         <option value="">Category</option>
-                        <option value="Home & kitchen">Home & Kitchen</option>
+                        <option value="Home & Kitchen">Home & Kitchen</option>
                         <option value="Electronics">Electronics</option>
                       </select>
                     </p>

@@ -86,9 +86,8 @@ export const showDataReducer = (state = initialState, action) => {
       };
 
     case SORT_PRODUCTS_HIGH_TO_LOW:
-      const combinedProducts = [...state.products];
-      const sortedProductHighToLow = combinedProducts.sort((a, b) => {
-        return b.price - a.price; // sort by price high to low
+      const sortedProductHighToLow =[...state.allProducts, ...JSON.parse(localStorage.getItem('product'))].sort((a, b) => {
+        return a.price - b.price; 
       });
     
       return {
@@ -101,13 +100,13 @@ export const showDataReducer = (state = initialState, action) => {
       // const sortedProductLowTohigh = [...state.allProducts].sort((a, b) => {
       //   return a.price - b.price;
       // });
-      const sortedProduct =[...state.allProducts, ...JSON.parse(localStorage.getItem('product'))].sort((a, b) => {
-        return a.price - b.price; 
+      const sortedProductLowTohigh =[...state.allProducts, ...JSON.parse(localStorage.getItem('product'))].sort((a, b) => {
+        return b.price - a.price; 
       });
-      console.log('hey',sortedProduct)
+     
       return {
         ...state,
-        products: sortedProduct,
+        products: sortedProductLowTohigh,
       };
 
     case SORT_BY_CATEGORY_ALL:
@@ -115,6 +114,7 @@ export const showDataReducer = (state = initialState, action) => {
         localStorage.getItem("product")
       );
       const allItem = [...state.allProducts, ...allProductsLocalStorage];
+    
       return {
         ...state,
         products: allItem,
@@ -129,6 +129,7 @@ export const showDataReducer = (state = initialState, action) => {
       const electronics = items.filter(
         (product) => product.category === "Electronics"
       );
+     
       
       return {
         ...state,
@@ -137,6 +138,7 @@ export const showDataReducer = (state = initialState, action) => {
     case SORT_BY_HOME_AND_KITCHEN:
       const kitchenstorage = JSON.parse(localStorage.getItem("product"));
       const kitchenItem = [...state.allProducts, ...kitchenstorage];
+      console.log(kitchenItem)
 
       const kitchen = kitchenItem.filter(
         (product) => product.category === "Home & Kitchen"

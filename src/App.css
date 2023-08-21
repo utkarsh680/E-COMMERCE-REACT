@@ -23,7 +23,11 @@
   justify-content: center;
   align-items: center;
 }
+.toast-message {
+  font-size: 20px;
+  width: 17vw;
 
+}
 
 
 

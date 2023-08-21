@@ -48,7 +48,11 @@ export default function ProductsCard(props) {
       tempArray.map((item) => {
         if (item.id === product.id) {
           flag = false;
-          toast.error("Already wishlisted!");
+          toast.error("Already wishlisted!", {
+            position: "top-right",
+            autoClose: 2000,
+            className: 'toast-message'
+            });
           return;
         }
       });
@@ -57,16 +61,25 @@ export default function ProductsCard(props) {
       return;
     }
     dispatch(addToWishlist(product));
-    toast.success("created");
+    toast.success('Added To Wishlist!', {
+      position: "top-right",
+      autoClose: 2000,
+      className: 'toast-message'
+    });
   };
 
   //   for removing the product
   const removeProductClick = (id) => {
     dispatch(removeProduct(id));
     console.log(id);
-    toast.success("remove product successfully");
+    toast.success('Product Deleted!', {
+      position: "top-right",
+      autoClose: 2000,
+      className: 'toast-message'
+    });
   };
-
+ 
+  // Add to cart
   const handleAddToCart = (product) => {
     let flag = true;
     if (localStorage.getItem("cart")) {
@@ -74,7 +87,12 @@ export default function ProductsCard(props) {
       tempArray.map((item) => {
         if (item.id === product.id) {
           flag = false;
-          toast.error("Already wishlisted!");
+          
+          toast.error('Already Added!', {
+            position: "top-right",
+            autoClose: 2000,
+            className: 'toast-message'
+          });
           return;
         }
       });
@@ -83,7 +101,11 @@ export default function ProductsCard(props) {
       return;
     }
     dispatch(addToCart(product));
-    toast.success("created");
+    toast.success('Added To Cart!', {
+      position: "top-right",
+      autoClose: 2000,
+      className: 'toast-message'
+    });
   };
 
   return (
