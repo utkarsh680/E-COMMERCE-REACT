@@ -19,13 +19,17 @@ import {
 } from "../Redux/Actions/Action";
 import { toast } from "react-toastify";
 
+
 export default function ProductsCard(props) {
-  const { product } = props;
+  const { product, handleEditClick } = props;
   const { name, id, image } = product;
   const [showDescription, setShowDescription] = useState(false);
   const [hide, setHide] = useState(false);
 
   const dispatch = useDispatch();
+
+
+  
 
   //  for showing details
   const handleClick = () => {
@@ -110,6 +114,7 @@ export default function ProductsCard(props) {
 
   return (
     <div key={id}>
+    
       <div
         style={{
           background: product.colorPalette
@@ -130,10 +135,13 @@ export default function ProductsCard(props) {
               <FontAwesomeIcon icon={faHeart} className={styles.icon1} /> Like
             </p>
             <div className={styles.border}></div>
-            <p className={styles.editButton}>
-              <FontAwesomeIcon icon={faPenToSquare} className={styles.icon2} />{" "}
+            <p className={styles.editButton}
+             onClick={()=>handleEditClick()}
+            >
+              <FontAwesomeIcon icon={faPenToSquare} className={styles.icon2}  />{" "}
               Edit
             </p>
+           
             <div className={styles.border}></div>
             <p
               onClick={() => removeProductClick(id)}

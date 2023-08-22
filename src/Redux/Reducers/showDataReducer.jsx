@@ -1,5 +1,6 @@
 import {
   ADD_PRODUCT,
+  EDIT_PRODUCT,
   FETCH_PRODUCTS,
   REMOVE_PRODUCT,
   SHOW_DETAILS,
@@ -51,6 +52,7 @@ export const showDataReducer = (state = initialState, action) => {
         products: updatedProducts,
       };
     }
+
     case ADD_PRODUCT:
       const addDataToStorage = JSON.parse(localStorage.getItem("product"));
       if (addDataToStorage) {
@@ -74,6 +76,30 @@ export const showDataReducer = (state = initialState, action) => {
         ...state,
         products: [action.payload], 
       };
+
+    case EDIT_PRODUCT:
+      const productStorageForEdit = JSON.parse(localStorage.getItem('product'));
+      if(productStorageForEdit.length > 0) {
+        const newProductFromLocalStorage = productStorageForEdit.map((product) => {
+          if(product.id === action.product.id){
+            return action.payload;
+          }
+          return product;
+        });
+        localStorage.setItem('product', JSON.stringify(newProductFromLocalStorage))
+      }
+
+      //update the state
+      const updatePRoducts = state.products.map((product) => {
+        if(product.id === action.payload.id){
+          return action.payload;
+        }
+        return product;
+      })
+      return {
+         ...state, 
+         products: [updatePRoducts]
+      }
     
 
     case SHOW_DETAILS:

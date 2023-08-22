@@ -1,6 +1,7 @@
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const EDIT_PRODUCT = 'EDIT_PRODUCT'
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
 export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
@@ -35,10 +36,19 @@ export const fetchProducts= (data) =>{
     }
 }
 
+// for remove Product
 export const removeProduct = (item_id) =>{
     return {
         type: REMOVE_PRODUCT,
         payload:item_id
+    }
+}
+
+// for edit Product
+export const  editProductt = (product) => {
+    return {
+        type: EDIT_PRODUCT,
+        payload: product
     }
 }
 
@@ -47,7 +57,6 @@ export const addToCart = (data) => {
     return{
         type: ADD_TO_CART,
         payload:data
-
     }
 }
 
