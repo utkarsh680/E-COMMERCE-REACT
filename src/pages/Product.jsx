@@ -25,6 +25,8 @@ function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
   const [showMenu, setShowMenu] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
+  const [cancel, setCancel] = useState(false);
+  const [editProduct, setEditProduct] = useState(null);
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
 
   const handleClick = () => {
@@ -37,14 +39,10 @@ function Product() {
 
   // edit click
   const [showEditBox, setShowEditBox] = useState(false);
-  const handleOpenEdit = () => {
-    if (showEditBox) {
-      setShowEditBox(!showEditBox);
-      console.log("false");
-    } else {
-      setShowEditBox(!showEditBox);
-      console.log("true");
-    }
+  const handleOpenEdit = (product) => {
+    setShowEditBox(!showEditBox);
+    setEditProduct(product);
+    setCancel(!cancel);
   };
 
   const dispatch = useDispatch();
@@ -90,7 +88,6 @@ function Product() {
   // sort Kitchen
   const sortKitchen = () => {
     dispatch(sortByHomeAndKitchen());
-    console.log();
   };
 
   const handleCategoryClick = () => {
@@ -119,7 +116,6 @@ function Product() {
               </div>
             ) : (
               <>
-                { showEditBox && <EditProduct  product={products} />}
                 <div className={styles.menuBox}>
                   <div className={styles.menuButton}>
                     <FontAwesomeIcon
@@ -198,16 +194,19 @@ function Product() {
                 <div className={styles.cardBox}>
                   {products.map((product) => {
                     return (
-                      <ProductsCard
-                        product={product}
-                        key={product.id}
-                        handleEditClick={() => handleOpenEdit()}
-                      />
+                      <>
+                        <ProductsCard
+                          product={product}
+                          key={product.id}
+                          handleEditClick={(product) => handleOpenEdit(product)}
+                        />
+                      </>
                     );
                   })}
                 </div>
               </>
             )}
+            {showEditBox && <EditProduct product={editProduct} cancel = {cancel} handleEditClick={(product) => handleOpenEdit(product)}/>}
           </div>
         </div>
       </div>

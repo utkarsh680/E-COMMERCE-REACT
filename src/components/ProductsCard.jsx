@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/product.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   faHeart,
   faPenToSquare,
@@ -20,6 +20,7 @@ import {
 import { toast } from "react-toastify";
 
 
+
 export default function ProductsCard(props) {
   const { product, handleEditClick } = props;
   const { name, id, image } = product;
@@ -27,9 +28,6 @@ export default function ProductsCard(props) {
   const [hide, setHide] = useState(false);
 
   const dispatch = useDispatch();
-
-
-  
 
   //  for showing details
   const handleClick = () => {
@@ -43,6 +41,8 @@ export default function ProductsCard(props) {
       setHide(true);
     }
   };
+
+
 
   //   For adding product to wishlist
   const addProductToWishlist = (product) => {
@@ -136,7 +136,7 @@ export default function ProductsCard(props) {
             </p>
             <div className={styles.border}></div>
             <p className={styles.editButton}
-             onClick={()=>handleEditClick()}
+             onClick={()=>handleEditClick(product)}
             >
               <FontAwesomeIcon icon={faPenToSquare} className={styles.icon2}  />{" "}
               Edit
@@ -185,6 +185,7 @@ export default function ProductsCard(props) {
             onClick={() => handleClick()}
           />
           {showDescription && <div className={styles.detailsCard}> {(product.description)? product.description : <h3>Description Not Available</h3>}</div>}
+         
         </div>
       </div>
     </div>
