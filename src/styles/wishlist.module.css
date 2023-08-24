@@ -1,7 +1,7 @@
 .homeContainer {
   height: 100vh;
   width: 100vw;
-  background-color: #cfd8d9;
+  background-color: rgb(31, 31, 31);
 }
 .itemContainer {
   height: 100%;
@@ -11,32 +11,36 @@
   align-items: center;
 }
 .style {
-  height: 450px;
-  width: 450px;
+  height: 150px;
+  width: 150px;
   position: absolute;
-  background-color: rgba(101, 255, 62, 0.486);
-  border-radius: 40%;
-  left: -60px;
+  background-color: #cc7218;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 200px 200px 40px inset rgba(15, 241, 15, 0.444);
-  opacity: 0.7;
+  left: 50px;
+  top: 40px;
+  border-radius: 30%;
 }
 .inStyle {
-  height: 200px;
-  width: 200px;
-  opacity: 0.5;
-  background-color: rgba(255, 255, 0, 0.572);
-  border-radius: 30px;
-  box-shadow: 3px 4px 30px rgba(242, 242, 43, 0.572);
+  height: 80px;
+  width: 80px;
+  opacity: 0.9;
+  background-color: rgb(243, 236, 236);
+  border-radius: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 4rem;
+  font-weight: 600;
 }
 .box {
   height: 80%;
   width: 70%;
   padding: 1px;
-  background-color: #e2e3e9;
-  box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
+  background-color: #000000a9;
+  box-shadow: 1px 1px 3px inset rgb(6, 6, 6);
   border-radius: 10px;
   rotate: 2deg;
 }
@@ -46,7 +50,6 @@
   flex-wrap: wrap;
   max-width: 100%;
   background-color: #e5e4e9;
-  box-shadow: 1px 1px 10px inset rgb(135, 134, 134);
   display: flex;
   justify-content: center;
   border-radius: 10px;
@@ -97,7 +100,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  
+
   left: -15px;
 }
 
@@ -107,11 +110,11 @@
   height: 220px;
   margin-top: 0px;
   margin-left: 30px;
-  transition: .5s all ease;
+  transition: 0.5s all ease;
 }
 
-.image img:hover{
-  transform: scale(1.1); 
+.image img:hover {
+  transform: scale(1.1);
 }
 
 .overlay {
@@ -252,24 +255,24 @@
   color: white;
   height: 18px;
   cursor: pointer;
-  transition: .3s all ease;
+  transition: 0.3s all ease;
 }
 
-.favIcon:hover{
+.favIcon:hover {
   color: antiquewhite;
   transform: scale(1.1);
 }
-.emptyWishlist{
+.emptyWishlist {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
 
-.emptyWishlist p{
+.emptyWishlist p {
   color: grey;
 }
-.browseProduct{
+.browseProduct {
   padding: 10px;
   font-size: 1rem;
   background-color: rgb(90, 161, 248);
@@ -279,10 +282,8 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
-  
 }
 
-.browseProduct:hover{
+.browseProduct:hover {
   background-color: rgb(9, 85, 179);
-  
 }

@@ -14,7 +14,7 @@
     text-decoration: none;
     margin-left:30px;
     font-size:20px;
-    color:rgb(113, 111, 111);
+    color:rgb(242, 242, 242);
 }
 
 .list a span{
@@ -22,7 +22,7 @@
     width: 35px;
     background-color: red;
     position: absolute;
-    margin-left: 388px;
+    margin-left: 382px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -30,4 +30,24 @@
     justify-content: center;
     font-size: 0.7rem;
     color: white;
+    font-weight: 700;
+
+}
+.cartLink {
+    position: relative;
+  
+}
+.cart{
+    display: flex;
+    height: 15px;
+    width: 35px;
+    position: absolute;
+    left: 3px;
+    font-size: 0.7rem;
+    border-radius: 10px;
+    color: white;
+    justify-content: center;
+    font-weight: 700;
+    align-items: center;
+    background-color: red;
 }

@@ -8,11 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const myData = useSelector((state) => state.cartReducer.cartList);
+  const product = useSelector((state) => state.cartReducer.cartList);
   const total = useSelector((state) => state.cartReducer.totalPrice);
   console.log(total);
 
-  const [cartItems, setCartItems] = useState(myData);
+  const [cartItems, setCartItems] = useState(product);
+  console.log(cartItems)
 
   // Add item from localStorage
   useEffect(() => {
@@ -26,12 +27,12 @@ function Cart() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
-        <div className={styles.inStyle}></div>
+        <div className={styles.inStyle}>C</div>
       </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar />
+            <Navbar/>
             {cartItems.length === 0 ? (
               <div className={styles.emptyCart}>
                 <p>No items in the cart.</p>
@@ -48,15 +49,15 @@ function Cart() {
                       cartItems.map((item, index) => {
                         return (
                           <>
-                            <div key={index} className={styles.product}>
-                              <div className={styles.ItemBox}>
+                              <div className={styles.ItemBox}
+                               style={{ border : item.colorPalette ? ` 2px solid ${item.colorPalette.primary}`: `2px solid #cc7218bf`}}
+                              >
                                 <p className={styles.index}> {index + 1}. </p>
                                 <p className={styles.productName}>
                                   {item.name.substring(0, 17)}
                                 </p>
                                 <p className={styles.qty}>1</p>
                               </div>
-                            </div>
                           </>
                         );
                       })
@@ -81,6 +82,7 @@ function Cart() {
         </div>
       </div>
     </div>
+    
   );
 }
 

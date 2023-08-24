@@ -20,7 +20,6 @@ import { v4 as uuidv4 } from "uuid";
 function AddProduct() {
   const [showDescription, setShowDescription] = useState(false);
   const [hide, setHide] = useState(false);
-  const product = useSelector((state) => state.showDataReducer.products);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [rating, setRating] = useState(0);
@@ -29,7 +28,6 @@ function AddProduct() {
   const [description, setDescription] = useState("");
 
   const id = uuidv4();
-
   //  for showing details
   const handleClick = () => {
     if (showDescription) {
@@ -68,12 +66,12 @@ function AddProduct() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
-        <div className={styles.inStyle}></div>
+        <div className={styles.inStyle}>A</div>
       </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar />
+            <Navbar/>
 
             <div className={styles.imgBox}>
               <div className={styles.overlay}>

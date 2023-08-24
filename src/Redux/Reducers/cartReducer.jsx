@@ -2,8 +2,9 @@ import { ADD_TO_CART, MOVE_TO_WISHLIST_FROM_CART, REMOVE_FROM_CART } from "../Ac
 
 const initialState = {
   loading: true,
-  cartList: [],
+  cartList: localStorage.getItem('cart') ? [...JSON.parse(localStorage.getItem('cart'))] : [],
   totalPrice: localStorage.getItem('totalPrice') ? localStorage.getItem('totalPrice') : 0
+
 };
 
 export const cartReducer = (state = initialState, action) => {

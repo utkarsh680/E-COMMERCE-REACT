@@ -1,22 +1,23 @@
 import React from "react";
 import styles from "../styles/home.module.css";
 import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
 
 function Home() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
-        <div className={styles.inStyle}></div>
+        <div className={styles.inStyle}>H</div>
       </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar />
+            <Navbar/>
             <div className={styles.heading1}>
               Welcome to the electro
               <div>
                 <h2>
-                  Let's Bring the Gadget to <br />
+                  Let's Bring the  <br />Gadget to <br />
                   Your Home
                 </h2>
               </div>

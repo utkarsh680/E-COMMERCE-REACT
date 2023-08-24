@@ -1,288 +1,282 @@
-
-.homeContainer{
-    height: 100vh;
-    width: 100vw;
-    background-color: #cfd8d9;
+.homeContainer {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(31, 31, 31);
 }
-.itemContainer{
-height: 100%;
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-    
+.itemContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.style{
-    height: 450px;
-    width: 450px;
-    position: absolute;
-    background-color: rgba(101, 255, 62, 0.486);
-    border-radius: 40%;
-    left: -60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 200px 200px 40px inset rgba(15, 241, 15, 0.444);;
-    opacity: 0.7;
-    
+.style {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  background-color: #cc7218;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50px;
+  top: 40px;
+  border-radius: 30%;
 }
-.inStyle{
-    height: 200px;
-    width: 200px;
-    opacity: 0.5;
-    background-color: rgba(255, 255, 0, 0.572);
-    border-radius: 30px;
-    box-shadow: 3px 4px 30px rgba(242, 242, 43, 0.572);;
-    
+.inStyle {
+  height: 80px;
+  width: 80px;
+  opacity: 0.9;
+  background-color: rgb(243, 236, 236);
+  border-radius: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 4rem;
+  font-weight: 600;
 }
 .box {
-height: 80%;
-width: 70%;
-padding: 1px;
-border-radius: 10px;
-rotate: 2deg;
-background-color: #e2e3e9;
-border: 1px solid  grey;
+  height: 80%;
+  width: 70%;
+  padding: 1px;
+  border-radius: 10px;
+  rotate: 2deg;
+  background-color: #000000a9;
+  box-shadow: 1px 1px 3px inset rgb(6, 6, 6);
 }
-.inBox{
-height: 100%;
-width: 100%;
-flex-wrap: wrap;
-max-width: 100%;
-display: flex;
-justify-content: center;
-background-color: #e5e4e9;
-border: 1px solid grey;
-border-radius: 10px;
-rotate: -2deg;
-
+.inBox {
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  opacity: 0.9;
+  border-radius: 10px;
+  rotate: -2deg;
 }
 
-.cardBox{
-    height: 500px;
-    width: 400px;
-    background-color: rgb(0, 0, 0);
-    border-radius: 10px;
-    margin-top: -20px;
+.cardBox {
+  height: 500px;
+  width: 400px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  margin-top: -20px;
 }
 
 /* hello */
 
 .cardBox {
-    height: 78%;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: scroll;
-    column-gap: 2rem;
-    flex-wrap: wrap;
-    max-width: 80%;
-    padding: 10px;
-  }
-  .cardBox::-webkit-scrollbar {
-    display: none;
-  }
-  .imgBox {
-    height: 540px;
-    width: 400px;
-    margin-top: 2.2rem;
-    display: flex;
-    justify-content: center;
-    background-size: contain;
-    margin: 10px;
-    background-repeat: no-repeat !important;
-    border-radius: 20px;
-  }
-  .overlay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(black, rgb(49, 35, 35), rgb(62, 45, 45));
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    min-width: inherit;
-    height: inherit;
-    width: inherit;
-    border-radius: 20px;
-    
-  }
-  
-  .overlay .image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    
-    left: -15px;
-  }
-  
-  .image img {
-    position: relative;
-    z-index: 2;
-    height: 220px;
-    margin-top: 0px;
-    margin-left: 40px;
-  }
-  .arrow {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    rotate: 310deg;
-    color: rgb(223, 222, 222);
-    padding: 12px;
-    font-size: 1.4rem;
-    overflow: hidden;
-  }
-  
-  
-  .detailsCard{
-    position: absolute;
-    height: 200px;
-    width: 370px;
-    background-color: #dee1e5;
-    left: 22px;
-    bottom: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px 20px 20px 5px;
-    transition: all 0.3s ease;
-  }
-  .detailsCard textarea{
-    height: 190px;
-    width: 350px;
-    resize: none;
-    border: none;
-    background: transparent;
-    border-radius: 10px;
-    padding: 10px;
-    outline: none;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-  }
+  height: 78%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+  column-gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 80%;
+  padding: 10px;
+}
+.cardBox::-webkit-scrollbar {
+  display: none;
+}
+.imgBox {
+  height: 540px;
+  width: 400px;
+  margin-top: 2.2rem;
+  display: flex;
+  justify-content: center;
+  background-size: contain;
+  margin: 10px;
+  background-repeat: no-repeat !important;
+  border-radius: 20px;
+}
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(black, rgb(49, 35, 35), rgb(62, 45, 45));
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  min-width: inherit;
+  height: inherit;
+  width: inherit;
+  border: 5px solid #cc7218bf;
+  border-radius: 20px;
+}
 
-  .detailsCard textarea:focus{
-    border: none;
-  }
-  .details {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    top: -50px;
-    height: 40%;
-    width: 100%;
-  }
-  .heading {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    color: white;
-    padding: 25px;
-    margin-top: 40px;
-  }
-  .category {
-    display: flex;
-    justify-content: center;
-    font-size: 1.1rem;
-    gap: 0.5rem; 
-  }
-  .category select{
-    background: transparent;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    direction: rtl !important;
-    text-align:left;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-  }
+.overlay .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
-  .category select:focus{
-    color: grey;
-  }
-  .category img {
-    height: 19px;
-  }
-  .rating {
-    font-size: 1.1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-  }
-  .rating select{
-    background: transparent ;
-    border: none;
-    color: white;
-    font-size: 1.1rem;
-    border-radius: 5px; 
-    height: 18px;
-    direction:rtl !important;
-    text-align:left;
-    margin-right: 3px;
-    margin-top: -2px;
-    transition: all 0.2s ease-in-out;
-    outline: none;
-  }
-  .rating select:focus{
-   color: grey;
-  }
-  .rating img {
-    height: 14px;
-  }
-  
-  .price {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1rem;
-    color: white;
-    margin-top: 30px;
-  }
-  .price .name input{
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    outline: none; 
-    text-align: center;
-    display: flex;
-    align-self: center;
-    letter-spacing: 2px;
+  left: -15px;
+}
 
-  }
-  .price .name input:focus{
-    border: none;
-  }
+.image img {
+  position: relative;
+  z-index: 2;
+  height: 220px;
+  margin-top: 0px;
+  margin-left: 40px;
+}
+.arrow {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  rotate: 310deg;
+  color: rgb(223, 222, 222);
+  padding: 12px;
+  font-size: 1.4rem;
+  overflow: hidden;
+}
 
-  .price .dollor input{
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    outline: none; 
-    text-align: center;
-    display: flex;
-    align-self: center;
-    letter-spacing: 2px;
-    width: 80px;
-    /* padding: 0 0px 0 10px; */
+.detailsCard {
+  position: absolute;
+  height: 200px;
+  width: 370px;
+  background-color: #dee1e5;
+  left: 22px;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 5px;
+  transition: all 0.3s ease;
+}
+.detailsCard textarea {
+  height: 190px;
+  width: 350px;
+  resize: none;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
 
-  }
+.detailsCard textarea:focus {
+  border: none;
+}
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: -50px;
+  height: 40%;
+  width: 100%;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  color: white;
+  padding: 25px;
+  margin-top: 40px;
+}
+.category {
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem;
+  gap: 0.5rem;
+}
+.category select {
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  direction: rtl !important;
+  text-align: left;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
 
-  .price .dollor{
-    display: flex;
-  }
-  .price span{
-    font-size: 1.4rem;
-  }
+.category select:focus {
+  color: grey;
+}
+.category img {
+  height: 19px;
+}
+.rating {
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rating select {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  height: 18px;
+  direction: rtl !important;
+  text-align: left;
+  margin-right: 3px;
+  margin-top: -2px;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+.rating select:focus {
+  color: grey;
+}
+.rating img {
+  height: 14px;
+}
 
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: white;
+  margin-top: 30px;
+}
+.price .name input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  outline: none;
+  text-align: center;
+  display: flex;
+  align-self: center;
+  letter-spacing: 2px;
+}
+.price .name input:focus {
+  border: none;
+}
+
+.price .dollor input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  outline: none;
+  text-align: center;
+  display: flex;
+  align-self: center;
+  letter-spacing: 2px;
+  width: 80px;
+  /* padding: 0 0px 0 10px; */
+}
+
+.price .dollor {
+  display: flex;
+}
+.price span {
+  font-size: 1.4rem;
+}
 
 .actions {
   display: flex;

@@ -2,7 +2,8 @@
 .homeContainer{
     height: 100vh;
     width: 100vw;
-    background-color: #cfd8d9;
+    background-color: rgb(31, 31, 31);
+    
 }
 
 .itemContainer{
@@ -14,35 +15,37 @@ align-items: center;
 }
 
 .style{
-    height: 450px;
-    width: 450px;
+    height: 150px;
+    width: 150px;
     position: absolute;
-    background-color: rgba(101, 255, 62, 0.486);
-    border-radius: 40%;
-    left: -60px;
+    background-color: #cc7218;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 200px 200px 40px inset rgba(15, 241, 15, 0.444);;
-    opacity: 0.7;
-    
+    left: 50px;
+    top: 40px;
+    border-radius: 30%;
 }
 .inStyle{
-    height: 200px;
-    width: 200px;
-    opacity: 0.5;
-    background-color: rgba(255, 255, 0, 0.572);
-    border-radius: 30px;
-    box-shadow: 3px 4px 30px rgba(242, 242, 43, 0.572);;
-    
+    height: 80px;
+    width: 80px;
+    opacity: 0.9;
+   background-color: rgb(243, 236, 236);
+   border-radius: 30%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: cursive;
+   font-size: 4rem;
+   font-weight: 600;   
 }
 
 .box {
 height: 80%;
 width: 70%;
 padding: 1px;
-background-color: #e2e3e9;
-box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
+background-color: #000000a9;
+box-shadow: 1px 1px 3px inset rgb(6, 6, 6);
 border-radius: 10px;
 rotate: 2deg;
 position: relative;
@@ -52,9 +55,7 @@ height: 100%;
 width: 100%;
 flex-wrap: wrap;
 max-width: 100%;
-background-color: #d9dadf;
-box-shadow: 1px 1px 10px inset rgb(135, 134, 134);
-background-image: url('https://images.pexels.com/photos/1203803/pexels-photo-1203803.jpeg');
+background-image: url('https://images.pexels.com/photos/3526906/pexels-photo-3526906.jpeg');
 background-repeat: none;
 background-position: center;
 background-size: cover;
@@ -62,6 +63,7 @@ border-radius: 10px;
 rotate: -2deg;
 display: flex;
 justify-content: end;
+opacity: 0.9;
 padding: 0px 60px;
 }
 .logo{
@@ -74,14 +76,14 @@ padding: 0px 60px;
 .point{
     height: 10px;
     width: 10px;
-    background-color: rgb(214, 11, 183);
+    background-color: rgb(38, 214, 11);
     border-radius: 50%;
     margin-top: 19px;
 }
 .logo h3{
     font-size: 2rem;
     font-family: sans-serif;
-    color: #3b302a;
+    color: #8f57d3;
     font-weight: 700;
 }
 
@@ -90,7 +92,7 @@ padding: 0px 60px;
  top: 18%;
  font-size: 18px;
  position: absolute;
- color: #3b302a;
+ color: #e5643e;
  font-weight: 500;
 }
 .heading1 h2{

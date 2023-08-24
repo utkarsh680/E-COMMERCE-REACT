@@ -66,7 +66,11 @@ function CartCard(props) {
           }}
           className={styles.imgBox}
         >
-          <div className={styles.overlay}>
+          <div className={styles.overlay}
+          style={{
+            border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #cc7218bf`
+          }}
+          >
             <div className={styles.addWishlist}>
               <FontAwesomeIcon
                 icon={faHeart}
@@ -102,6 +106,7 @@ function CartCard(props) {
               <div className={styles.actions}>
                 <button
                   className={styles.addToCart}
+                  style={{ border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #cc7218bf`}}
                   onClick={() => {
                     removeProductHandle(id);
                   }}

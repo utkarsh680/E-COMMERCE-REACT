@@ -23,6 +23,7 @@ import { toast } from "react-toastify";
 
 export default function ProductsCard(props) {
   const { product, handleEditClick } = props;
+  console.log("productt", product)
   const { name, id, image } = product;
   const [showDescription, setShowDescription] = useState(false);
   const [hide, setHide] = useState(false);
@@ -123,7 +124,9 @@ export default function ProductsCard(props) {
         }}
         className={styles.imgBox}
       >
-        <div className={styles.overlay}>
+        <div className={styles.overlay} style={{
+          border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #cc7218bf`
+        }}>
           <div className={styles.image}>
             <img src={product.image} alt="" />
           </div>

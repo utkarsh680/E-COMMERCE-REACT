@@ -17,44 +17,32 @@ function EditProduct(props) {
   const descriptionRef = useRef();
   const priceRef = useRef();
 
-  // const [editProduct, setEditProduct] = useState(product);
-  console.log(editProduct.name);
+  const handleToast = (msg) => {
+    toast.error(msg , {
+      position: "top-right",
+      autoClose: 2000,
+      className: 'toast-message'
+    })
+  }
 
   const handleSaveClick = () => {
+
+  
     if (nameRef.current.value === '') {
-      toast.error('Added!', {
-        position: "top-right",
-        autoClose: 2000,
-        className: 'toast-message'
-      });
+      handleToast('Field cannot be empty!')
       return;
-    } else if (ratingRef.current.value === '') {
-      toast.error('Added!', {
-        position: "top-right",
-        autoClose: 2000,
-        className: 'toast-message'
-      });
-      return;
+    } else if (ratingRef.current.value === '' || ratingRef.current.value > 5) {
+        handleToast('Rate between 0 to 5!')
+        return;
     } else if (categoryRef.current.value === 'Category') {
-      toast.error('Added!', {
-        position: "top-right",
-        autoClose: 2000,
-        className: 'toast-message'
-      });
+      handleToast('Field cannot be empty!')
+     
       return;
     } else if (descriptionRef.current.value === '') {
-      toast.error('Added!', {
-        position: "top-right",
-        autoClose: 2000,
-        className: 'toast-message'
-      });
+      handleToast('Field cannot be empty!')
       return;
     } else if (priceRef.current.value === '') {
-      toast.error('Added!', {
-        position: "top-right",
-        autoClose: 2000,
-        className: 'toast-message'
-      });
+      handleToast('Field cannot be empty!')
       return;
     }
     const data = {

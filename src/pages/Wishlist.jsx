@@ -27,12 +27,12 @@ function Wishlist() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
-        <div className={styles.inStyle}></div>
+        <div className={styles.inStyle}>W</div>
       </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar />
+            <Navbar/>
             {wishlistItems.length === 0 ? (
               <div className={styles.emptyWishlist}>
               <p>No items in the wishlist.</p>
