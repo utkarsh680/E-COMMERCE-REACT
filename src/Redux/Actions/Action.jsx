@@ -45,7 +45,7 @@ export const removeProduct = (item_id) =>{
 }
 
 // for edit Product
-export const  editProductt = (product) => {
+export const  editProduct = (product) => {
     return {
         type: EDIT_PRODUCT,
         payload: product

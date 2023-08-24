@@ -194,19 +194,23 @@ function Product() {
                 <div className={styles.cardBox}>
                   {products.map((product) => {
                     return (
-                      <>
-                        <ProductsCard
-                          product={product}
-                          key={product.id}
-                          handleEditClick={(product) => handleOpenEdit(product)}
-                        />
-                      </>
+                      <ProductsCard
+                        product={product}
+                        key={product.id}
+                        handleEditClick={(product) => handleOpenEdit(product)}
+                      />
                     );
                   })}
                 </div>
               </>
             )}
-            {showEditBox && <EditProduct product={editProduct} cancel = {cancel} handleEditClick={(product) => handleOpenEdit(product)}/>}
+            {showEditBox && (
+              <EditProduct
+                product={editProduct}
+                cancel={cancel}
+                handleEditClick={(product) => handleOpenEdit(product)}
+              />
+            )}
           </div>
         </div>
       </div>
