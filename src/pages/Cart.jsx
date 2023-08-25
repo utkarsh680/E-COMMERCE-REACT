@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import styles from "../styles/cart.module.css";
 import { useSelector } from "react-redux";
 import { CartCard } from "../components";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
@@ -24,10 +24,47 @@ function Cart() {
     }
   }, [localStorage.getItem("cart")]);
 
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.clientX);
+    setScrollLeft(e.currentTarget.scrollLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const x = e.clientX - startX;
+    e.currentTarget.scrollLeft = scrollLeft - x;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // mouse wheel scroll
+
+  const scrollContainerRef = useRef(null);
+
+  const handleWheel = (e) => {
+    const scrollContainer = scrollContainerRef.current;
+    const scrollAmount = 100; // Adjust this value as needed
+
+    if (e.deltaY > 0) {
+      scrollContainer.scrollLeft += scrollAmount; // Scroll right
+    } else {
+      scrollContainer.scrollLeft -= scrollAmount; // Scroll left
+    }
+
+    e.preventDefault();
+  };
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
-        <div className={styles.inStyle}>C</div>
+        <div className={styles.inStyle}>electro</div>
       </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>
@@ -43,14 +80,22 @@ function Cart() {
             ) : (
               <>
                 <div className={styles.checkOut}>
-                  <div className={styles.checkOutData}>
+                
+                  <div className={styles.checkOutData} onMouseDown={handleMouseDown}
+                      onMouseMove={handleMouseMove}
+                      onMouseUp={handleMouseUp}
+                      onMouseLeave={handleMouseUp}
+                      onWheel={handleWheel}
+                      ref={scrollContainerRef}
+                      >
+                       
                     {
                       // iterate over the cart items
                       cartItems.map((item, index) => {
                         return (
                           <>
                               <div className={styles.ItemBox}
-                               style={{ border : item.colorPalette ? ` 2px solid ${item.colorPalette.primary}`: `2px solid #cc7218bf`}}
+                               style={{ border : item.colorPalette ? ` 2px solid ${item.colorPalette.primary}`: `2px solid #908f8d`}}
                               >
                                 <p className={styles.index}> {index + 1}. </p>
                                 <p className={styles.productName}>
@@ -63,6 +108,7 @@ function Cart() {
                       })
                     }
                   </div>
+                  
                   <div className={styles.nextStepButton}>
                     <p className={styles.totalPrice}> ${total} </p>
                     <button>

@@ -41,7 +41,32 @@ function AddProduct() {
     }
   };
 
+  const handleToast = (msg) => {
+    toast.error(msg , {
+      position: "top-right",
+      autoClose: 2000,
+      className: 'toast-message'
+    })
+  }
   const handleAddTask = () => {
+    
+    if (name === '') {
+      handleToast('Field cannot be empty!')
+      return;
+    } else if (rating === '' || rating > 5) {
+        handleToast('Rate between 0 to 5!')
+        return;
+    } else if (category === 'Category') {
+      handleToast('Field cannot be empty!')
+     
+      return;
+    } else if (description === '') {
+      handleToast('Field cannot be empty!')
+      return;
+    } else if (price === '') {
+      handleToast('Field cannot be empty!')
+      return;
+    }
     const items = {
       id,
       name,
@@ -66,7 +91,7 @@ function AddProduct() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
-        <div className={styles.inStyle}>A</div>
+        <div className={styles.inStyle}>electro</div>
       </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>
@@ -77,7 +102,7 @@ function AddProduct() {
               <div className={styles.overlay}>
                 <div className={styles.image}>
                   <img
-                    src="https://freepngimg.com/thumb/technology/31816-4-technology-photo.png"
+                    src="https://img.freepik.com/free-photo/beautiful-glowing-gray-full-moon_181624-59870.jpg?w=740&t=st=1692939690~exp=1692940290~hmac=0cde2ae2e0aeee1764df0fdafec9cb5fbed559f5c8b5fb80febc93ce08479c7b"
                     alt=""
                   />
                 </div>

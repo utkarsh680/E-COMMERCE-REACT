@@ -14,7 +14,8 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  background-color: #cc7218;
+  background-color: #060606;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,13 +27,13 @@
   height: 80px;
   width: 80px;
   opacity: 0.9;
-  background-color: rgb(243, 236, 236);
+  background-color: rgb(79, 79, 79);
+  border: 2px solid  #8f57d3 ;
+  font-size: 1.3rem;
   border-radius: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: cursive;
-  font-size: 4rem;
   font-weight: 600;
 }
 .box {
@@ -228,6 +229,7 @@ button:hover .deleteIcon {
 }
 .favIcon:hover{
   color: red;
+  transform: scale(1.1);
 }
 /* checkout  */
 .checkOut {
@@ -255,7 +257,9 @@ button:hover .deleteIcon {
   white-space: nowrap;
   padding: 5px;
   border-right: 3px solid rgb(70, 70, 70);
+
 }
+
 .checkOutData::-webkit-scrollbar{
   display: none;
 }
@@ -291,6 +295,7 @@ button:hover {
   border-radius: 10px;
   border: 2px solid black;
   padding: 5px;
+  cursor: pointer;
 }
 .ItemBox .qty {
   height: 20px;
@@ -328,4 +333,31 @@ button:hover {
 
 .browseProduct:hover {
   background-color: rgb(9, 85, 179);
+}
+@media screen and (max-width : 1440px){
+.style{
+  height: 130px;
+  width: 130px;
+  transition: all 0.4s ease;
+}
+.inStyle{
+  height: 70px;
+  width: 70px;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+}
+.box {
+  height: 70%;
+  width: 70%;
+  transition: all 0.4s ease;
+}
+.cardBox {
+  height: 73%;
+  width: 80%;
+  padding: 1px;
+}
+.checkOut { 
+  border: none;
+  bottom: 0;
+}
 }

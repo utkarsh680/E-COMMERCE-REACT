@@ -17,32 +17,17 @@
     color:rgb(242, 242, 242);
 }
 
-.list a span{
-    height: 15px;
-    width: 35px;
-    background-color: red;
-    position: absolute;
-    margin-left: 382px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    color: white;
-    font-weight: 700;
 
-}
 .cartLink {
-    position: relative;
-  
+    position: relative; 
 }
+
 .cart{
     display: flex;
     height: 15px;
     width: 35px;
     position: absolute;
-    left: 3px;
+    left: 0px;
     font-size: 0.7rem;
     border-radius: 10px;
     color: white;
@@ -50,4 +35,30 @@
     font-weight: 700;
     align-items: center;
     background-color: red;
+}
+.dealLink{
+    position: relative;
+}
+.deal{
+    display: flex;
+    height: 15px;
+    width: 35px;
+    position: absolute;
+    left: 0px;
+    font-size: 0.7rem;
+    border-radius: 10px;
+    color: white;
+    justify-content: center;
+    font-weight: 700;
+    align-items: center;
+    background-color: red;
+}
+
+
+@media screen and (max-width: 1440px){
+    .list a{
+        margin-left:20px;
+        font-size:18px;
+        color:rgb(242, 242, 242);
+    }
 }

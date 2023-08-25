@@ -15,8 +15,8 @@ function Navbar(props) {
           </Link>
           <Link to="/wishlist">Wishlist</Link>
           
-          <Link to="/">
-            Deal<span>new</span>
+          <Link to="/" className={styles.dealLink}>deal
+          <p className={styles.deal}>new</p>
           </Link>
           <Link to="/addProduct">Add Products</Link>
         </li>

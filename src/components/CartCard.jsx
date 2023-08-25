@@ -62,13 +62,13 @@ function CartCard(props) {
           style={{
             background: product.colorPalette
               ? `url("${image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`
-              : " ",
+              :  `url("https://images.pexels.com/photos/821718/pexels-photo-821718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
           }}
           className={styles.imgBox}
         >
           <div className={styles.overlay}
           style={{
-            border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #cc7218bf`
+            border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #908f8d`
           }}
           >
             <div className={styles.addWishlist}>
@@ -79,8 +79,8 @@ function CartCard(props) {
               />
             </div>
             <div className={styles.image}>
-              <img src={image} alt="" />
-            </div>
+            {product.image ? <img src={product.image} className = {styles.productImage} alt="" />: <img src="https://img.freepik.com/free-photo/beautiful-glowing-gray-full-moon_181624-59870.jpg?w=740&t=st=1692939690~exp=1692940290~hmac=0cde2ae2e0aeee1764df0fdafec9cb5fbed559f5c8b5fb80febc93ce08479c7b" className={styles.moon} />}  
+             </div>
             <div className={styles.details}>
               <div className={styles.heading}>
                 <p className={styles.category}>
@@ -106,7 +106,7 @@ function CartCard(props) {
               <div className={styles.actions}>
                 <button
                   className={styles.addToCart}
-                  style={{ border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #cc7218bf`}}
+                  style={{ border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #908f8d`}}
                   onClick={() => {
                     removeProductHandle(id);
                   }}

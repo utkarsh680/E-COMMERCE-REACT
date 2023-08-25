@@ -27,7 +27,7 @@ function Wishlist() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.style}>
-        <div className={styles.inStyle}>W</div>
+        <div className={styles.inStyle}>electro</div>
       </div>
       <div className={styles.itemContainer}>
         <div className={styles.box}>

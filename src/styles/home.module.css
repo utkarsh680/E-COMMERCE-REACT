@@ -2,8 +2,7 @@
 .homeContainer{
     height: 100vh;
     width: 100vw;
-    background-color: rgb(31, 31, 31);
-    
+    background-color: rgb(31, 31, 31);   
 }
 
 .itemContainer{
@@ -18,8 +17,9 @@ align-items: center;
     height: 150px;
     width: 150px;
     position: absolute;
-    background-color: #cc7218;
+    background-color: #060606;
     display: flex;
+    color: white;
     justify-content: center;
     align-items: center;
     left: 50px;
@@ -27,18 +27,36 @@ align-items: center;
     border-radius: 30%;
 }
 .inStyle{
-    height: 80px;
-    width: 80px;
-    opacity: 0.9;
-   background-color: rgb(243, 236, 236);
+   height: 80px;
+   width: 80px;
+   opacity: 0.9;
+   background-color: rgb(79, 79, 79);
    border-radius: 30%;
    display: flex;
    justify-content: center;
    align-items: center;
-   font-family: cursive;
-   font-size: 4rem;
+   border: 2px solid  #8f57d3 ;
+   font-size: 1.3rem;
    font-weight: 600;   
 }
+/* .inStyle span{
+    
+    position: absolute;
+    left: 30px;
+    animation: updown 2s infinite ;
+} */
+
+/* @keyframes updown {
+    50% {
+        margin-top: -50px;
+        rotate: 90deg;
+        scale: 1.5;
+        color: #8f57d3;
+    }
+    100% {
+        margin-top: 0;
+    }
+} */
 
 .box {
 height: 80%;
@@ -157,6 +175,50 @@ padding: 0px 60px;
 }
 .img3:hover{
     transform: scale(1.2);
+}
+
+@media screen and (max-width : 1440px)
+{
+    .style{
+        height: 130px;
+        width: 130px;
+        transition: all 0.4s ease;
+    }
+    .inStyle{
+       height: 70px;
+       width: 70px;
+       font-size: 1rem;
+       transition: all 0.4s ease;
+    }
+    .box {
+        height: 70%;
+        width: 70%;
+        transition: all 0.4s ease;
+    }
+    .heading1 h2{
+        font-size: 34px;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    
+    .zoom{
+        height: 130px;
+        width: 130px;   
+    }
+    .img1{
+        height: 130px;
+        width: 130px;     
+    }
+    .img2{
+        height: 130px;
+        width: 130px;
+    }
+    .img3{
+        height: 130px;
+        width: 130px;
+    }
+
+    
 }
 
 

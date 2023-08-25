@@ -14,7 +14,8 @@
   height: 150px;
   width: 150px;
   position: absolute;
-  background-color: #cc7218;
+  background-color: #060606;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,13 +27,13 @@
   height: 80px;
   width: 80px;
   opacity: 0.9;
-  background-color: rgb(243, 236, 236);
+  background-color: rgb(79, 79, 79);
+  border: 2px solid  #8f57d3 ;
+  font-size: 1.3rem;
   border-radius: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: cursive;
-  font-size: 4rem;
   font-weight: 600;
 }
 .box {
@@ -57,31 +58,6 @@
   rotate: -2deg;
 }
 
-.cardBox {
-  height: 500px;
-  width: 400px;
-  background-color: rgb(0, 0, 0);
-  border-radius: 10px;
-  margin-top: -20px;
-}
-
-/* hello */
-
-.cardBox {
-  height: 78%;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: scroll;
-  column-gap: 2rem;
-  flex-wrap: wrap;
-  max-width: 80%;
-  padding: 10px;
-}
-.cardBox::-webkit-scrollbar {
-  display: none;
-}
 .imgBox {
   height: 540px;
   width: 400px;
@@ -92,19 +68,22 @@
   margin: 10px;
   background-repeat: no-repeat !important;
   border-radius: 20px;
+  background: url('https://images.pexels.com/photos/821718/pexels-photo-821718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
 }
 .overlay {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(black, rgb(49, 35, 35), rgb(62, 45, 45));
-  -webkit-backdrop-filter: blur(4px);
+ 
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  background: rgba(0, 0, 0, 0.6);
   min-width: inherit;
   height: inherit;
   width: inherit;
-  border: 5px solid #cc7218bf;
+  border: 3px solid #908f8d;
   border-radius: 20px;
 }
 
@@ -120,7 +99,7 @@
 .image img {
   position: relative;
   z-index: 2;
-  height: 220px;
+  height: 200px;
   margin-top: 0px;
   margin-left: 40px;
 }
@@ -137,28 +116,37 @@
 
 .detailsCard {
   position: absolute;
-  height: 200px;
-  width: 370px;
-  background-color: #dee1e5;
-  left: 22px;
-  bottom: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  height: 200px;
+  width: 350px;
+  background-color: #313030;
+  left: 22px;
+  bottom: 30px;
   border-radius: 20px 20px 20px 5px;
   transition: all 0.3s ease;
+  font-size: 1.1rem;
+  padding: 15px;
+  word-break: break-allhy;
 }
+
 .detailsCard textarea {
   height: 190px;
   width: 350px;
   resize: none;
   border: none;
+  color: white;
   background: transparent;
   border-radius: 10px;
   padding: 10px;
   outline: none;
   font-size: 1.1rem;
   letter-spacing: 1px;
+  overflow: scroll;
+}
+
+.detailsCard textarea::-webkit-scrollbar {
+  display: none;
 }
 
 .detailsCard textarea:focus {
@@ -304,3 +292,35 @@
   color: white;
   border-color: white;
 }
+@media screen and (max-width : 1440px){
+  .style{
+    height: 130px;
+    width: 130px;
+    transition: all 0.4s ease;
+  }
+  .inStyle{
+    height: 70px;
+    width: 70px;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+  }
+  .box {
+    height: 70%;
+    width: 70%;
+    transition: all 0.4s ease;
+  }
+  .imgBox {
+    height: 490px;
+    width: 380px;
+  }
+  .image img {
+    height: 190px;
+    margin-top: -40px;
+    margin-left: 20px;
+  }
+  .detailsCard {
+    height: 180px;
+    width: 340px;
+    background-color: #242424;  
+  }
+  }
