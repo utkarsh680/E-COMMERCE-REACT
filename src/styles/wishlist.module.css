@@ -346,3 +346,20 @@
      
     }
   }
+  @media screen and (max-width: 600px) {
+    .cardBox {
+      height: 68%;
+      width: 80%;
+      margin-top: -10px;
+    }
+    .imgBox {
+      height: 440px;
+      width: 300px;
+      margin-top: 0.5rem;
+      transition: all 0.4s ease;
+    }
+    .checkOut { 
+      /* border: none; */
+      bottom: 40px;
+    }
+  }
