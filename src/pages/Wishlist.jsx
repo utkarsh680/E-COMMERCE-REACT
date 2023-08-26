@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { WishlistCard } from "../components";
 import { Link } from "react-router-dom";
 
-
 function Wishlist() {
   const myData = useSelector((state) => state.wishlistReducer.wishList); //Data from state
 
@@ -29,14 +28,23 @@ function Wishlist() {
       <div className={styles.style}>
         <div className={styles.inStyle}>electro</div>
       </div>
+
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar/>
+            <Navbar />
+            <div className={styles.logo}>
+              <div>
+                <h3>electro</h3>
+              </div>
+              <div className={styles.point}></div>
+            </div>
             {wishlistItems.length === 0 ? (
               <div className={styles.emptyWishlist}>
-              <p>No items in the wishlist.</p>
-              <Link to="/product" className={styles.browseProduct}>Browse Products</Link>
+                <p>No items in the wishlist.</p>
+                <Link to="/product" className={styles.browseProduct}>
+                  Browse Products
+                </Link>
               </div>
             ) : (
               <div className={styles.cardBox}>

@@ -57,7 +57,6 @@
   background-color: black;
   border-radius: 10px;
   rotate: -2deg;
-
 }
 .sortCategory {
  
@@ -302,6 +301,8 @@
   position: absolute;
   left: 10px;
   top: 100px;
+  z-index: 40;
+
 }
 
 .menuButton {
@@ -314,8 +315,7 @@
 }
 
 .shortByPrice {
-  background-color: #c8c6ca;
-  box-shadow: 1px 1px 5px inset rgb(100, 99, 99);
+  background-color: rgb(255, 255, 255);
   height: 130px;
   width: 140px;
   display: flex;
@@ -329,7 +329,6 @@
   font-weight: 600;
   position: relative;
   z-index: 20;
- 
 }
 .shortLatest {
   display: flex;
@@ -338,6 +337,27 @@
   align-items: center;
   padding: 7px;
   cursor: pointer;
+}
+/* company name */
+.logo {
+  position: absolute;
+  left: 10px;
+  margin: 20px;
+  display: flex;
+}
+
+.point {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(38, 214, 11);
+  border-radius: 50%;
+  margin-top: 19px;
+}
+.logo h3 {
+  font-size: 2rem;
+  font-family: sans-serif;
+  color: #8f57d3;
+  font-weight: 700;
 }
 
 .shortLatest .dotIcon {
@@ -431,6 +451,7 @@
   font-weight: 600;
   gap: 1rem;
   color: black;
+  cursor: pointer;
 }
 .categoryBox {
   border-bottom: 1px solid black;
@@ -562,4 +583,18 @@
     display: flex;
   }
  
+}
+@media screen and (max-width: 730px) {
+  .itemCategory {
+    position: absolute;
+    left: 60px;
+    top: 163px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .menuBox {
+    position: absolute;
+    left: 0px;
+    top: 200px;
+  }
 }

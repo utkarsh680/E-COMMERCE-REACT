@@ -10,10 +10,10 @@ import { Link } from "react-router-dom";
 function Cart() {
   const product = useSelector((state) => state.cartReducer.cartList);
   const total = useSelector((state) => state.cartReducer.totalPrice);
-  console.log(total);
+  console.log("total", total);
 
   const [cartItems, setCartItems] = useState(product);
-  console.log(cartItems)
+  console.log(cartItems);
 
   // Add item from localStorage
   useEffect(() => {
@@ -66,10 +66,17 @@ function Cart() {
       <div className={styles.style}>
         <div className={styles.inStyle}>electro</div>
       </div>
+
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar/>
+            <Navbar />
+            <div className={styles.logo}>
+              <div>
+                <h3>electro</h3>
+              </div>
+              <div className={styles.point}></div>
+            </div>
             {cartItems.length === 0 ? (
               <div className={styles.emptyCart}>
                 <p>No items in the cart.</p>
@@ -80,35 +87,40 @@ function Cart() {
             ) : (
               <>
                 <div className={styles.checkOut}>
-                
-                  <div className={styles.checkOutData} onMouseDown={handleMouseDown}
-                      onMouseMove={handleMouseMove}
-                      onMouseUp={handleMouseUp}
-                      onMouseLeave={handleMouseUp}
-                      onWheel={handleWheel}
-                      ref={scrollContainerRef}
-                      >
-                       
+                  <div
+                    className={styles.checkOutData}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}
+                    onWheel={handleWheel}
+                    ref={scrollContainerRef}
+                  >
                     {
                       // iterate over the cart items
                       cartItems.map((item, index) => {
                         return (
                           <>
-                              <div className={styles.ItemBox}
-                               style={{ border : item.colorPalette ? ` 2px solid ${item.colorPalette.primary}`: `2px solid #908f8d`}}
-                              >
-                                <p className={styles.index}> {index + 1}. </p>
-                                <p className={styles.productName}>
-                                  {item.name.substring(0, 17)}
-                                </p>
-                                <p className={styles.qty}>1</p>
-                              </div>
+                            <div
+                              className={styles.ItemBox}
+                              style={{
+                                border: item.colorPalette
+                                  ? ` 2px solid ${item.colorPalette.primary}`
+                                  : `2px solid #908f8d`,
+                              }}
+                            >
+                              <p className={styles.index}> {index + 1}. </p>
+                              <p className={styles.productName}>
+                                {item.name.substring(0, 17)}
+                              </p>
+                              <p className={styles.qty}>1</p>
+                            </div>
                           </>
                         );
                       })
                     }
                   </div>
-                  
+
                   <div className={styles.nextStepButton}>
                     <p className={styles.totalPrice}> ${total} </p>
                     <button>
@@ -128,7 +140,6 @@ function Cart() {
         </div>
       </div>
     </div>
-    
   );
 }
 

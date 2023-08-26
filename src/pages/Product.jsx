@@ -103,10 +103,17 @@ function Product() {
       <div className={styles.style}>
         <div className={styles.inStyle}>electro</div>
       </div>
+
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-            <Navbar/>
+            <Navbar />
+            <div className={styles.logo}>
+              <div>
+                <h3>electro</h3>
+              </div>
+              <div className={styles.point}></div>
+            </div>
             {products.length === 0 ? (
               <div className={styles.emptyProduct}>
                 <p>No items in the Product.</p>

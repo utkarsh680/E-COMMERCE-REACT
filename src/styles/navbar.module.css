@@ -16,6 +16,26 @@
     font-size:20px;
     color:rgb(242, 242, 242);
 }
+.list1{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 160px;
+    background-color: rgb(51, 51, 51);
+    border-radius: 5px;
+    z-index: 30;
+    padding: 10px 0px;
+    display: none;
+}
+
+.list1 a{
+    display: flex;
+    margin-top: 10px;
+    text-decoration: none;
+    margin-left:30px;
+    font-size:20px;
+    color:rgb(242, 242, 242);
+}
 
 
 .cartLink {
@@ -53,6 +73,23 @@
     align-items: center;
     background-color: red;
 }
+.navbarIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 0 40px;
+    position: absolute;
+    right: 0px;
+    top: -10px;
+    z-index: 50;
+}
+
+.barIcon{
+  color: white;
+  font-size: 1.4rem;
+  display: none;
+  cursor: pointer;
+}
 
 
 @media screen and (max-width: 1440px){
@@ -60,5 +97,37 @@
         margin-left:20px;
         font-size:18px;
         color:rgb(242, 242, 242);
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .dealLink{
+        display: none;
+    }
+    .navbar{
+        height: 40px;
+        top: 6%;
+        transition: all 0.4s ease;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .barIcon{ 
+        display: flex;
+      }
+      .list{
+        display: none;
+      }
+
+    .list1{
+       display: block;
+    }
+    .deal{
+        top: 4px;
+        left: 44px;
+    }
+    .cart{
+        top: 4px;
+        left: 44px;
     }
 }

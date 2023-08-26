@@ -61,10 +61,13 @@ export const addToCart = (data) => {
 }
 
 // for remove product from the cart
-export const removeFromCart = (item_id) => {
+export const removeFromCart = (item_id, price) => {
     return {
         type: REMOVE_FROM_CART,
-        payload: item_id
+        payload: {
+            item_id, 
+            price
+        } 
     }
 }
 

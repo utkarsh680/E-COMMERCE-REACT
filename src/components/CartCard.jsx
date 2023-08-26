@@ -15,8 +15,8 @@ function CartCard(props) {
 
   const dispatch = useDispatch()
    //remove item from localStorage
-  const removeProductHandle = (id) => {
-    dispatch(removeFromCart(id));
+  const removeProductHandle = (id, price) => {
+    dispatch(removeFromCart(id, price));
     toast.success('Product Deleted!', {
       position: "top-right",
       autoClose: 2000,
@@ -108,7 +108,7 @@ function CartCard(props) {
                   className={styles.addToCart}
                   style={{ border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #908f8d`}}
                   onClick={() => {
-                    removeProductHandle(id);
+                    removeProductHandle(id, product.price);
                   }}
                 >
                   <FontAwesomeIcon

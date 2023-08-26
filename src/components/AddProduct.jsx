@@ -97,6 +97,12 @@ function AddProduct() {
         <div className={styles.box}>
           <div className={styles.inBox}>
             <Navbar/>
+            <div className={styles.logo}>
+              <div>
+                <h3>electro</h3>
+              </div>
+              <div className={styles.point}></div>
+            </div>
 
             <div className={styles.imgBox}>
               <div className={styles.overlay}>
