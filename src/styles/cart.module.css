@@ -417,7 +417,7 @@ button:hover {
   .cardBox {
     height: 68%;
     width: 80%;
-    margin-top: -120px;
+    margin-top: -60px;
   }
   .imgBox {
     height: 440px;
@@ -427,6 +427,6 @@ button:hover {
   }
   .checkOut { 
     /* border: none; */
-    bottom: 40px;
+    bottom: 10px;
   }
 }

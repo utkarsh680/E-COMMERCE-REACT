@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/wishlist.module.css";
 import { useDispatch } from "react-redux";
-import { removeFromWishlist, clearWishlist,addToCart } from "../Redux/Actions/Action";
+import { removeFromWishlist,addToCart } from "../Redux/Actions/Action";
 import { faCartShopping,  faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import categoryIcon from "../assets/icons/category.svg";
@@ -23,11 +23,6 @@ function WishlistCard(props) {
         autoClose: 2000,
         className: 'toast-message'
       });
-    };
-  
-    // clear all items from wishlist
-    const clearWishlistFromList = () => {
-      dispatch(clearWishlist());
     };
   
     const addProductToCart = (product) =>{

@@ -27,7 +27,7 @@ function CartCard(props) {
   // Add product to wishlist
   const addProductToWishlist = (product) => {
     
-    console.log("hello");
+  
     let flag = true;
     if (localStorage.getItem("wishlist")) {
       const tempArray = [...JSON.parse(localStorage.getItem("wishlist"))];

@@ -22,7 +22,6 @@ export const cartReducer = (state = initialState, action) => {
       }
 
       const totalPrice = localStorage.getItem('totalPrice');
-      console.log(totalPrice)
 
       // add total price to local storage
       if (totalPrice) {
@@ -46,11 +45,8 @@ export const cartReducer = (state = initialState, action) => {
       localStorage.setItem('cart', JSON.stringify(updatedItem))
 
       if (updatedItem.length !== 0) {
-        // update total price in local storage
-        console.log("a",parseInt(localStorage.getItem('totalPrice')))
-        console.log(action.payload)
+        // update total price in local storage  
         localStorage.setItem('totalPrice', JSON.stringify(parseInt(localStorage.getItem('totalPrice')) - Math.round(parseFloat(action.payload.price))));
-        console.log("b",parseInt(localStorage.getItem('totalPrice')))
     } else {
         localStorage.setItem('totalPrice', JSON.stringify(0));
     }

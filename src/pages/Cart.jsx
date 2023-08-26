@@ -10,10 +10,7 @@ import { Link } from "react-router-dom";
 function Cart() {
   const product = useSelector((state) => state.cartReducer.cartList);
   const total = useSelector((state) => state.cartReducer.totalPrice);
-  console.log("total", total);
-
   const [cartItems, setCartItems] = useState(product);
-  console.log(cartItems);
 
   // Add item from localStorage
   useEffect(() => {

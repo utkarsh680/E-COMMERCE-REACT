@@ -39,25 +39,6 @@
   font-weight: 600;
 }
 
-/* .inStyle span{
-    
-    position: absolute;
-    left: 30px;
-    animation: updown 2s infinite ;
-} */
-
-/* @keyframes updown {
-    50% {
-        margin-top: -50px;
-        rotate: 90deg;
-        scale: 1.5;
-        color: #8f57d3;
-    }
-    100% {
-        margin-top: 0;
-    }
-} */
-
 .box {
   height: 80%;
   width: 70%;
@@ -82,7 +63,9 @@
   display: flex;
   justify-content: end;
   opacity: 0.9;
+  overflow: hidden;
 }
+
 .logo {
   position: absolute;
   left: 10px;

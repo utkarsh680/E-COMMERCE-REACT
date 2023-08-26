@@ -379,3 +379,24 @@
     display: none;
   }
 }
+@media screen and (max-width: 600px) {
+  .imgBox {
+    height: 490px;
+    width: 350px;
+  }
+  .image img {
+    height: 160px;
+    margin-top: 0;
+    margin-left: 40px;
+  }
+  .detailsCard {
+    height: 180px;
+    width: 300px;
+    left: 23px;
+    font-size: 1rem;
+  }
+  .detailsCard textarea {
+    height: 170px;
+    width: 290px;
+  }
+}

@@ -5,8 +5,7 @@ export const EDIT_PRODUCT = 'EDIT_PRODUCT'
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'
 export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
-export const CLEAR_WISHLIST  =' CLEAR_WISHLIST'
-export const  ADD_PRODUCT = 'ADD_PRODUCT'
+export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const SORT_PRODUCTS_LOW_TO_HIGH ='SORT_PRODUCTS_LOW_TO_HIGH'
 export const SORT_PRODUCTS_HIGH_TO_LOW = 'SORT_PRODUCTS_HIGH_TO_LOW'
 // export const SORT_BY_LATEST = 'SORT_BY_LATEST'
@@ -14,8 +13,6 @@ export const SORT_BY_ELECTRONICS = 'SORT_BY_ELECTRONICS'
 export const SORT_BY_HOME_AND_KITCHEN = 'SORT_BY_HOME_AND_KITCHEN'
 export const SORT_BY_CATEGORY_ALL = 'SORT_BY_CATEGORY_ALL'
 
-// for toggle
-export const SHOW_DETAILS = 'SHOW_PRODUCT'
 
 // move to wishlist
 
@@ -89,24 +86,6 @@ export const removeFromWishlist =(item_id) => {
     }
 }
 
-// for clear wishlist
-
-export const clearWishlist = () =>
-{
-    return{
-        type:CLEAR_WISHLIST,
-    }
-}
-
-// for toggle card
-
-export const showDetails = (id) =>{
-    return {
-        type:SHOW_DETAILS,
-        payload:id
-
-    }
-}
 
 // move to wishlist form cart
 

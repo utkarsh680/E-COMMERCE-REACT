@@ -23,7 +23,6 @@ import { toast } from "react-toastify";
 
 export default function ProductsCard(props) {
   const { product, handleEditClick } = props;
-  console.log("productt", product)
   const { name, id, image } = product;
   const [showDescription, setShowDescription] = useState(false);
   const [hide, setHide] = useState(false);
@@ -76,7 +75,6 @@ export default function ProductsCard(props) {
   //   for removing the product
   const removeProductClick = (id) => {
     dispatch(removeProduct(id));
-    console.log(id);
     toast.success('Product Deleted!', {
       position: "top-right",
       autoClose: 2000,
