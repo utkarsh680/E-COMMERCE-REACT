@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  background-color: black;
+  background-color: rgb(31, 31, 31);
   overflow: scroll;
 }
 .container::-webkit-scrollbar{
