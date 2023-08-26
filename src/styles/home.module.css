@@ -113,6 +113,15 @@
   color: #e5643e;
   font-weight: 500;
 }
+.heading2 {
+  left: 20%;
+  bottom: 8%;
+  font-size: 18px;
+  position: absolute;
+  color: #e5643e;
+  font-weight: 500;
+  display: none;
+}
 .heading1 h2 {
   font-size: 40px;
   margin-top: 1rem;
@@ -214,46 +223,6 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
-  .style {
-    height: 130px;
-    width: 130px;
-    transition: all 0.4s ease;
-  }
-  .inStyle {
-    height: 70px;
-    width: 70px;
-    font-size: 1rem;
-    transition: all 0.4s ease;
-  }
-  .box {
-    height: 70%;
-    width: 70%;
-    transition: all 0.4s ease;
-  }
-  .heading1 h2 {
-    font-size: 34px;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .zoom {
-    height: 130px;
-    width: 130px;
-  }
-  .img1 {
-    height: 130px;
-    width: 130px;
-  }
-  .img2 {
-    height: 130px;
-    width: 130px;
-  }
-  .img3 {
-    height: 130px;
-    width: 130px;
-  }
-}
-
 /* 1260px */
 
 @media screen and (max-width: 1260px) {
@@ -274,11 +243,11 @@
     background-image: url("https://images.pexels.com/photos/1637436/pexels-photo-1637436.jpeg");
     display: flex;
   }
-  .heading1 h2{
+  .heading1 h2 {
     font-size: 1.8rem;
     color: white;
   }
-  .heading1 p{
+  .heading1 p {
     color: red;
     font-size: 16px;
   }
@@ -296,5 +265,69 @@
   }
 }
 @media screen and (max-width: 1180px) {
-    
+  .box {
+    height: 100%;
+    width: 100%;
+    rotate: none;
+  }
+  .inBox {
+    height: 100%;
+    width: 100%;
+    rotate: none;
+    background-image: url("https://images.pexels.com/photos/23474/pexels-photo.jpg");
+
+  }
+  .style {
+    display: none;
+  }
+  .inStyle {
+    display: none;
+  }
+  .itemsPos {
+    margin-right: 0;
+    rotate: none;
+    margin-top: 0;
+    transition: all 0.6s ease;
+  }
+  .zoom {
+    rotate: none;
+    height: 150px;
+    width: 150px;
+    border: 2px solid gray;
+  }
+  .img1{
+    height: 150px;
+    width: 150px;
+  }
+  .img2{
+    height: 150px;
+    width: 150px;
+  }
+  .img3{
+    height: 150px;
+    width: 150px;
+  }
+  .heading1 h2 {
+    font-size: 2.5rem;
+    color: white;
+  }
+  .heading1 p {
+    color: red;
+    font-size: 20px;
+  }
+  .heading2 {
+    font-size: 2vw;
+    position: absolute;
+    color: #ffffff;
+    font-weight: 500;
+    display: block;
+  }
+  .heading2 h2 {
+    font-size: 5vw;
+    margin-top: 1rem;
+  }
+  .heading1 {
+    display: none;
+  }
+
 }

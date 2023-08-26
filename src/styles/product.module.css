@@ -530,3 +530,36 @@
     border-radius: 10px;
   }
 }
+@media screen and (max-width: 1180px) {
+  .box {
+    height: 100%;
+    width: 100%;
+    rotate: none;
+  }
+  .inBox {
+    height: 100%;
+    width: 100%;
+    rotate: none;
+  }
+  .style {
+    display: none;
+  }
+  .inStyle {
+    display: none;
+  }
+  .cardBox {
+    height: 56%;
+    width: 80%;
+  }
+  .menuBox {
+    left: 20px;
+    top: 200px;
+  }
+  .itemCategory {
+    position: absolute;
+    right: 50px;
+    top: 165px;
+    display: flex;
+  }
+ 
+}

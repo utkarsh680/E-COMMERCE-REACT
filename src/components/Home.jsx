@@ -22,6 +22,15 @@ function Home() {
                 </h2>
               </div>
             </div>
+            <div className={styles.heading2}>
+             <p>Welcome to the electro</p> 
+              <div>
+                <h2>
+                  Let's Bring the Gadget to <br />
+                  Your Home
+                </h2>
+              </div>
+            </div>
             <div className={styles.logo}>
               <div>
                 <h3>electro</h3>
