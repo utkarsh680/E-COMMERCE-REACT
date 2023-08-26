@@ -413,3 +413,19 @@ button:hover {
     border: 2px solid rgb(70, 70, 70);
   }
 }
+@media screen and (max-width: 600px) {
+  .cardBox {
+    height: 68%;
+    width: 80%;
+    margin-top: -120px;
+  }
+  .imgBox {
+    height: 440px;
+    width: 300px;
+    margin-top: 0.5rem;
+  }
+  .checkOut { 
+    /* border: none; */
+    bottom: 40px;
+  }
+}
