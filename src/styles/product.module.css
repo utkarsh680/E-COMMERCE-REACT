@@ -39,7 +39,6 @@
 .box {
   height: 80%;
   width: 70%;
-  padding: 1px;
   background-color: #000000a9;
   box-shadow: 1px 1px 3px inset rgb(6, 6, 6);
   border-radius: 10px;
@@ -59,7 +58,6 @@
   rotate: -2deg;
 }
 .sortCategory {
- 
   right: 0;
   top: -50px;
   padding: 40px;
@@ -299,6 +297,7 @@
 
 .menuBox {
   position: absolute;
+  display: flex;
   left: 10px;
   top: 100px;
   z-index: 40;
@@ -594,7 +593,50 @@
 @media screen and (max-width: 600px) {
   .menuBox {
     position: absolute;
-    left: 0px;
-    top: 200px;
+    left: -80px;
+    top: 150px;
   }
+  .cardBox {
+    height: 70%;
+    width: 100%;
+    margin-top: 70px;
+  }
+ 
+  .imgBox {
+    height: 450px;
+    width: 300px;
+  }
+  .shortByPrice {
+    margin-left: 120px;
+  }
+  .itemCategory {
+    left: 60px;
+    top: 115px;
+  }
+  .image .productImage {
+    height: 160px;
+  }
+  .image .moon {
+    height: 140px; 
+  }
+  .details {
+    top: -10px;
+  }
+  .price {
+    font-size: 1.2rem;
+  }
+  .actions button {
+    padding: 8px 12px;
+    margin-top: 25px;
+  }
+  .actions .cartIcon {
+    height: 17px;
+  }
+  .detailsCard {
+    height: 150px;
+    width: 250px;
+    left: 23px;
+    font-size: 1rem;
+  }
+
 }
