@@ -308,6 +308,7 @@
     height: 70%;
     width: 70%;
     transition: all 0.4s ease;
+  
   }
   .imgBox {
     height: 490px;
@@ -324,3 +325,19 @@
     background-color: #242424;  
   }
   }
+  
+@media screen and (max-width: 1260px) {
+  .style {
+    height: 100px;
+    width: 190px;
+    left: 20px;
+    top: 10px;
+    border-radius: 10px;
+  }
+  .inStyle {
+    height: 70px;
+    width: 100px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+  }
+}

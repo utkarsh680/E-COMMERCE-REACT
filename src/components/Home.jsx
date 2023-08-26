@@ -14,7 +14,7 @@ function Home() {
           <div className={styles.inBox}>
             <Navbar/>
             <div className={styles.heading1}>
-              Welcome to the electro
+             <p>Welcome to the electro</p> 
               <div>
                 <h2>
                   Let's Bring the  <br />Gadget to <br />
