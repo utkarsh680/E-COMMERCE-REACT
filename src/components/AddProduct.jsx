@@ -103,7 +103,7 @@ function AddProduct() {
               </div>
               <div className={styles.point}></div>
             </div>
-
+          <div className={styles.cardBox}>
             <div className={styles.imgBox}>
               <div className={styles.overlay}>
                 <div className={styles.image}>
@@ -196,6 +196,7 @@ function AddProduct() {
                   </div>
                 )}
               </div>
+            </div>
             </div>
           </div>
         </div>

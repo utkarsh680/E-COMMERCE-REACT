@@ -57,6 +57,17 @@
   border-radius: 10px;
   rotate: -2deg;
 }
+.cardBox{
+  height: 80%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+}
+.cardBox::-webkit-scrollbar{
+  display: none;
+}
 
 .imgBox {
   height: 540px;
