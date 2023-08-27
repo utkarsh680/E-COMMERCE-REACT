@@ -15,6 +15,7 @@
   font-size: 2rem;
   background-color: rgb(31, 31, 31);
   overflow: scroll;
+
 }
 .container::-webkit-scrollbar{
   display: none;
@@ -25,11 +26,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 .toast-message {
   font-size: 20px;
-  width: 350px;
-
+  width: 300px;
 }
 
 

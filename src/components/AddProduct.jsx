@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from "react-toastify";
 import { addProduct } from "../Redux/Actions/Action";
+
 import {
   faHeart,
   faPenToSquare,
@@ -44,7 +45,7 @@ function AddProduct() {
   const handleToast = (msg) => {
     toast.error(msg , {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 1000,
       className: 'toast-message'
     })
   }
@@ -78,7 +79,7 @@ function AddProduct() {
     dispatch(addProduct({ items }));
     toast.success('Product Added!', {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 1000,
       className: 'toast-message'
     });
     setName("");

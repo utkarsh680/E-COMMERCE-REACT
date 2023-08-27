@@ -144,6 +144,7 @@
   padding: 12px;
   font-size: 1.4rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .detailsCard {
@@ -395,7 +396,7 @@
 @media screen and (max-width: 600px) {
   .imgBox {
     height: 490px;
-    width: 350px;
+    width: 300px;
   }
   .image img {
     height: 160px;
@@ -404,12 +405,18 @@
   }
   .detailsCard {
     height: 180px;
-    width: 300px;
+    width: 250px;
     left: 23px;
     font-size: 1rem;
   }
   .detailsCard textarea {
     height: 170px;
     width: 290px;
+  }
+  .actions button {
+    padding: 8px 14px;
+  }
+  .actions .cartIcon {
+    height: 18px;
   }
 }
