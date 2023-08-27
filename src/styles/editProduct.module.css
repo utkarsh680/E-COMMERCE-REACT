@@ -1,14 +1,16 @@
 
 .imgBox {
     height: 63vh;
-    width: 70vw;
+    width: 66vw;
     position: absolute;
-    top: 100px;
+    top: 102px;
     border-radius: 20px;
-    z-index: 400;
+    z-index: 20;
     background-repeat: no-repeat !important;
     border-radius: 20px;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 .overlay {
     background: rgba(0, 0, 0, 0.6);
@@ -19,7 +21,9 @@
     width: inherit;
     border-radius: 20px;
     position: relative;
-  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
   .overlay .image {
     display: flex;
@@ -31,13 +35,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    margin-left: 300px;
-
+    gap:  2rem;
+    overflow: scroll;
+  }
+  .overlayMargin::-webkit-scrollbar{
+    display: none;
   }
   
   .image img {
-    position: absolute;
     z-index: 2;
     height: 290px;
     left: 130px;
@@ -84,16 +89,10 @@
   .price input:focus{
     border: 2px solid #005bea;
   }
-
-
-
   .detailsCard{
     height: 150px;
     width: 370px;
     background-color: transparent;
-
-    left: 22px;
-    bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,7 +132,7 @@
     width: 100%;
     align-items: center;
     color: white;
-    padding: 25px;
+    padding: 15px;
     gap: 3rem;
   
   }
@@ -226,5 +225,108 @@
   border-radius: 10px;
   color: white;
  }
+
+ @media screen and (max-width : 1440px){
+
+  .imgBox {
+    height: 55vh;
+    width: 62vw;
+    transition: all 0.2s ease;
+  }
+  .overlayMargin{
+    gap: 1.5rem;
+  }
+  .image img {
+    height: 260px;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .imgBox {
+    height: 55vh;
+    width: 78vw;
+    top: 220px;
+    transition: all 0.2s ease;
+  }
+  .image img {
+    height: 260px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .imgBox {
+    height: 70vh;
+    width: 60vw;
+    transition: all 0.2s ease;
+  }
+  .overlay {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .overlayMargin{
+    gap: 1rem;
+  }
+  .image img {
+    height: 200px;
+  }
+  .detailsCard{
+    height: 120px;
+    width: 340px;
+  }
+  .heading {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 666px) {
+  .imgBox {
+    height: 73vh;
+    width: 80vw;
+    top: 200px;
+    transition: all 0.2s ease;
+  }
+  .overlay {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .overlayMargin{
+    gap: 1rem;
+  }
+  .image img {
+    height: 100px;
+  }
+ 
+  .heading {
+    gap: 1rem;
+  }
+  .rating input{
+    width: 60px;
+    padding-left: 5px;
+    margin-right: none;
+  }
+  .detailsCard{
+    height: 110px;
+    width: 300px;
+  }
+  .productName{
+    height: 35px;
+    width: 220px;
+  }
+  .price{
+    height: 35px;
+  }
+  .rating input{
+    height: 40px;
+  }
+  .category select{
+    height: 40px;
+  }
+  .saveButton{
+    height: 33px;
+    font-size: 1rem;
+   }
+   .cancelButton{
+    height: 33px;
+    font-size: 1rem;
+   }
+}
 
  

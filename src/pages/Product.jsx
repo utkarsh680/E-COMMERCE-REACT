@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import {
   faArrowUp,
   faArrowDown,
-  faBars,
   faDotCircle,
+  faSort,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -126,7 +126,7 @@ function Product() {
                 <div className={styles.menuBox}>
                   <div className={styles.menuButton}>
                     <FontAwesomeIcon
-                      icon={faBars}
+                      icon={faSort}
                       className={styles.barIcon}
                       onClick={() => handleClick()}
                     />

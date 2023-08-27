@@ -72,10 +72,11 @@ function EditProduct(props) {
         }}
       >
         <div className={styles.overlay}>
-          <div className={styles.overlayMargin}>
-            <div className={styles.image}>
+        <div className={styles.image}>
               <img src={product.image} alt="" />
-            </div>
+          </div>
+          <div className={styles.overlayMargin}>
+            
             <div className={styles.productName}>
               <input ref={nameRef} type="text" defaultValue={product.name} />
             </div>
