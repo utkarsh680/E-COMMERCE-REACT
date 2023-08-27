@@ -58,12 +58,16 @@
   rotate: -2deg;
 }
 .cardBox{
-  height: 80%;
-  width: 50%;
+  height: 78%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: scroll;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  max-width: 80%;
+  padding: 10px;
 }
 .cardBox::-webkit-scrollbar{
   display: none;
@@ -86,10 +90,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
   background: rgba(0, 0, 0, 0.6);
   min-width: inherit;
   height: inherit;

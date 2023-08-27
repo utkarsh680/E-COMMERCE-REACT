@@ -587,7 +587,12 @@
   .itemCategory {
     position: absolute;
     left: 60px;
-    top: 163px;
+    top: 128px;
+  }
+  .menuBox {
+    position: absolute;
+    left: 0px;
+    top: 165px;
   }
 }
 @media screen and (max-width: 600px) {
