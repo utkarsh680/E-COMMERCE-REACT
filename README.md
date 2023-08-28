@@ -13,6 +13,6 @@ https://singh233.github.io/Ecommerce-React-App/ 🚀
 <li>Update Product</li>
 <li>Delete Product 🗑️</li>
 <li>Wishlist Item</li>
-<li>Responsive for Desktop 🖥️ and Mobile devices 📱</li>
+<li>Responsive for Desktop 🖥️ and Mobile devices 📱</li><br/>
 Start the server
 <div>npm run dev</div>
