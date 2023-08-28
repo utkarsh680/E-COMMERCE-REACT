@@ -18,7 +18,7 @@ Start the server
 <div>npm run dev</div>
 
 <h2>Screenshots</h2>
-![Screenshot 2023-08-28 215017](https://github.com/utkarsh680/CONTACT_MANAGER/assets/102253404/d9ffe7cc-1a6f-4c11-b2e9-c98da36528ac)<br/>
+![Screenshot 2023-08-28 215017](https://github.com/utkarsh680/CONTACT_MANAGER/assets/102253404/d9ffe7cc-1a6f-4c11-b2e9-c98da36528ac)
 ![Screenshot 2023-08-28 215152](https://github.com/utkarsh680/E-COMMERCE-REACT/assets/102253404/539448ca-048a-4360-9be4-91e20d0b3791)
 ![Screenshot 2023-08-28 215330](https://github.com/utkarsh680/E-COMMERCE-REACT/assets/102253404/d39cbd6d-7566-4048-8aba-e6d3fa63e8bd)
 ![Screenshot 2023-08-28 215351](https://github.com/utkarsh680/E-COMMERCE-REACT/assets/102253404/ff436556-3c67-4d58-8642-7c7dd4ee7347)
