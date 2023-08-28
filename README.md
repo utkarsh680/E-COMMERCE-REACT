@@ -15,4 +15,4 @@ https://singh233.github.io/Ecommerce-React-App/ 🚀
 <li>Wishlist Item</li>
 <li>Responsive for Desktop 🖥️ and Mobile devices 📱</li>
 Start the server
-<div style ={height: auto, width: auto, padding: 10px, background-color:grey}>npm run dev</div>
+<div>npm run dev</div>
