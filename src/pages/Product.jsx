@@ -23,8 +23,8 @@ import { EditProduct, ProductsCard } from "../components";
 
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
-  const loading = useSelector ((state) => state.showDataReducer.loading);
-  console.log(loading)
+  const loading = useSelector((state) => state.showDataReducer.loading);
+  console.log(loading);
   const [showMenu, setShowMenu] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
   const [cancel, setCancel] = useState(false);
@@ -105,20 +105,19 @@ function Product() {
       <div className={styles.style}>
         <div className={styles.inStyle}>electro</div>
       </div>
-      
+
       <div className={styles.itemContainer}>
         <div className={styles.box}>
           <div className={styles.inBox}>
-         
             <Navbar />
-          {loading ? <div className = {styles.loader}></div>: ""}
+            {loading ? <div className={styles.loader}></div> : ""}
             <div className={styles.logo}>
               <div>
                 <h3>electro</h3>
               </div>
               <div className={styles.point}></div>
             </div>
-            {products.length === 0 ? (
+            {products.length === 0 && !loading ? (
               <div className={styles.emptyProduct}>
                 <p>No items in the Product.</p>
                 <Link to="/addProduct" className={styles.browseProduct}>
@@ -203,7 +202,6 @@ function Product() {
                   )}
                 </div>
                 <div className={styles.cardBox}>
-                
                   {products.map((product) => {
                     return (
                       <ProductsCard
@@ -216,16 +214,16 @@ function Product() {
                 </div>
               </>
             )}
-            {showEditBox && (
-              <EditProduct
-                product={editProduct}
-                cancel={cancel}
-                handleEditClick={(product) => handleOpenEdit(product)}
-              />
-            )}
           </div>
         </div>
       </div>
+      {showEditBox && (
+        <EditProduct
+          product={editProduct}
+          cancel={cancel}
+          handleEditClick={(product) => handleOpenEdit(product)}
+        />
+      )}
     </div>
   );
 }

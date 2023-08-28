@@ -63,6 +63,7 @@ function EditProduct(props) {
 
   return (
     <>
+    <div className={styles.blur}>
       <div
         className={styles.imgBox}
         style={{
@@ -76,7 +77,6 @@ function EditProduct(props) {
               <img src={product.image} alt="" />
           </div>
           <div className={styles.overlayMargin}>
-            
             <div className={styles.productName}>
               <input ref={nameRef} type="text" defaultValue={product.name} />
             </div>
@@ -135,6 +135,7 @@ function EditProduct(props) {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
