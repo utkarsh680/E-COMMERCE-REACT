@@ -29,3 +29,6 @@ Start the server
 ![7](https://github.com/utkarsh680/E-COMMERCE-REACT/assets/102253404/65dde82b-8a9b-4eb4-93fd-0f87b1ffb090)
 ![8](https://github.com/utkarsh680/E-COMMERCE-REACT/assets/102253404/15dd02b3-9412-47c2-a9b9-d74096f338ce)
 ![9](https://github.com/utkarsh680/E-COMMERCE-REACT/assets/102253404/1fbae6f5-cd38-4bb5-a79c-6b35fdd6be2c)
+
+<h2>🚀 About Me</h2>
+<p>I'm a Aspiring full stack developer... Love to create, design and build cool projects 😎 and have passion for creating innovative solutions to complex problems using cutting-edge technologies. I have a  understanding of both front-end and back-end development, and constantly seeking to improve my skills in these areas.</p>
