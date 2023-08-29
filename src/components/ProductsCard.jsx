@@ -18,8 +18,7 @@ import {
   removeProduct,
 } from "../Redux/Actions/Action";
 import { toast } from "react-toastify";
-
-
+import "animate.css";
 
 export default function ProductsCard(props) {
   const { product, handleEditClick } = props;
@@ -32,17 +31,15 @@ export default function ProductsCard(props) {
   //  for showing details
   const handleClick = () => {
     if (showDescription) {
-      setShowDescription(!showDescription);
+      setHide(true);
       setTimeout(() => {
-        setHide(false);
+        setShowDescription(!showDescription);
       }, 500);
     } else {
       setShowDescription(!showDescription);
-      setHide(true);
+      setHide(false);
     }
   };
-
-
 
   //   For adding product to wishlist
   const addProductToWishlist = (product) => {
@@ -55,8 +52,8 @@ export default function ProductsCard(props) {
           toast.error("Already wishlisted!", {
             position: "top-right",
             autoClose: 2000,
-            className: 'toast-message'
-            });
+            className: "toast-message",
+          });
           return;
         }
       });
@@ -65,23 +62,23 @@ export default function ProductsCard(props) {
       return;
     }
     dispatch(addToWishlist(product));
-    toast.success('Added To Wishlist!', {
+    toast.success("Added To Wishlist!", {
       position: "top-right",
       autoClose: 2000,
-      className: 'toast-message'
+      className: "toast-message",
     });
   };
 
   //   for removing the product
   const removeProductClick = (id) => {
     dispatch(removeProduct(id));
-    toast.success('Product Deleted!', {
+    toast.success("Product Deleted!", {
       position: "top-right",
       autoClose: 2000,
-      className: 'toast-message'
+      className: "toast-message",
     });
   };
- 
+
   // Add to cart
   const handleAddToCart = (product) => {
     let flag = true;
@@ -90,11 +87,11 @@ export default function ProductsCard(props) {
       tempArray.map((item) => {
         if (item.id === product.id) {
           flag = false;
-          
-          toast.error('Already Added!', {
+
+          toast.error("Already Added!", {
             position: "top-right",
             autoClose: 2000,
-            className: 'toast-message'
+            className: "toast-message",
           });
           return;
         }
@@ -104,16 +101,15 @@ export default function ProductsCard(props) {
       return;
     }
     dispatch(addToCart(product));
-    toast.success('Added To Cart!', {
+    toast.success("Added To Cart!", {
       position: "top-right",
       autoClose: 2000,
-      className: 'toast-message'
+      className: "toast-message",
     });
   };
 
   return (
     <div key={id}>
-    
       <div
         style={{
           background: product.colorPalette
@@ -122,11 +118,23 @@ export default function ProductsCard(props) {
         }}
         className={styles.imgBox}
       >
-        <div className={styles.overlay} style={{
-          border : product.colorPalette ? ` 3px solid ${product.colorPalette.primary}`: `3px solid #908f8d`
-        }}>
+        <div
+          className={styles.overlay}
+          style={{
+            border: product.colorPalette
+              ? ` 3px solid ${product.colorPalette.primary}`
+              : `3px solid #908f8d`,
+          }}
+        >
           <div className={styles.image}>
-            {product.image ? <img src={product.image} className = {styles.productImage} alt="" />: <img src="https://img.freepik.com/free-photo/beautiful-glowing-gray-full-moon_181624-59870.jpg?w=740&t=st=1692939690~exp=1692940290~hmac=0cde2ae2e0aeee1764df0fdafec9cb5fbed559f5c8b5fb80febc93ce08479c7b" className={styles.moon} />}  
+            {product.image ? (
+              <img src={product.image} className={styles.productImage} alt="" />
+            ) : (
+              <img
+                src="https://img.freepik.com/free-photo/beautiful-glowing-gray-full-moon_181624-59870.jpg?w=740&t=st=1692939690~exp=1692940290~hmac=0cde2ae2e0aeee1764df0fdafec9cb5fbed559f5c8b5fb80febc93ce08479c7b"
+                className={styles.moon}
+              />
+            )}
           </div>
           <div className={styles.menu}>
             <p
@@ -136,13 +144,14 @@ export default function ProductsCard(props) {
               <FontAwesomeIcon icon={faHeart} className={styles.icon1} /> Like
             </p>
             <div className={styles.border}></div>
-            <p className={styles.editButton}
-             onClick={()=>handleEditClick(product)}
+            <p
+              className={styles.editButton}
+              onClick={() => handleEditClick(product)}
             >
-              <FontAwesomeIcon icon={faPenToSquare} className={styles.icon2}  />{" "}
+              <FontAwesomeIcon icon={faPenToSquare} className={styles.icon2} />{" "}
               Edit
             </p>
-           
+
             <div className={styles.border}></div>
             <p
               onClick={() => removeProductClick(id)}
@@ -185,8 +194,16 @@ export default function ProductsCard(props) {
             className={styles.arrow}
             onClick={() => handleClick()}
           />
-          {showDescription && <div className={styles.detailsCard}> {(product.description)? product.description : <h3>Description Not Available</h3>}</div>}
-         
+          {showDescription && (
+            <div
+              className={`animate__animated ${styles.detailsCard} ${
+                hide ? "animate__flipOutY" : "animate__flipInY"
+              }`}
+            >
+              {" "}
+              {product.description}
+            </div>
+          )}
         </div>
       </div>
     </div>

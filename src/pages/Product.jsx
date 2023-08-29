@@ -20,11 +20,11 @@ import {
 import styles from "../styles/product.module.css";
 import Navbar from "../components/Navbar";
 import { EditProduct, ProductsCard } from "../components";
+import 'animate.css';
 
 function Product() {
   const products = useSelector((state) => state.showDataReducer.products);
   const loading = useSelector((state) => state.showDataReducer.loading);
-  console.log(loading);
   const [showMenu, setShowMenu] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
   const [cancel, setCancel] = useState(false);

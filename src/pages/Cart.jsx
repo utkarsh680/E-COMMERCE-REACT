@@ -97,9 +97,10 @@ function Cart() {
                       // iterate over the cart items
                       cartItems.map((item, index) => {
                         return (
-                          <>
+                          <div key ={item.id}>
                             <div
                               className={styles.ItemBox}
+                             
                               style={{
                                 border: item.colorPalette
                                   ? ` 2px solid ${item.colorPalette.primary}`
@@ -112,7 +113,7 @@ function Cart() {
                               </p>
                               <p className={styles.qty}>1</p>
                             </div>
-                          </>
+                          </div>
                         );
                       })
                     }
