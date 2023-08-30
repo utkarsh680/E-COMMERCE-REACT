@@ -7,6 +7,7 @@ import {
   faArrowDown,
   faDotCircle,
   faSort,
+  faChessKing,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -27,21 +28,29 @@ function Product() {
   const loading = useSelector((state) => state.showDataReducer.loading);
   const [showMenu, setShowMenu] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
+  const [categoryHide, setCategoryHide] = useState(true);
   const [cancel, setCancel] = useState(false);
+  const [hide, setHide] = useState(true);
   const [editProduct, setEditProduct] = useState(null);
   const url = "https://my-json-server.typicode.com/singh233/JSON-Server";
 
   const handleClick = () => {
     if (showMenu) {
-      setShowMenu(!showMenu);
+      setHide(false)
+      setTimeout (() => {
+        setShowMenu(!showMenu);
+      }, 500)
+    
     } else {
       setShowMenu(!showMenu);
+      setHide(true)
     }
   };
 
   // edit click
   const [showEditBox, setShowEditBox] = useState(false);
   const handleOpenEdit = (product) => {
+    
     setShowEditBox(!showEditBox);
     setEditProduct(product);
     setCancel(!cancel);
@@ -94,9 +103,14 @@ function Product() {
 
   const handleCategoryClick = () => {
     if (showCategory) {
-      setShowCategory(!showCategory);
+      setCategoryHide(false)
+      setTimeout(() => {
+        setShowCategory(!showCategory);
+      }, 500)
+      
     } else {
       setShowCategory(!showCategory);
+      setCategoryHide(true)
     }
   };
 
@@ -135,7 +149,9 @@ function Product() {
                     />
 
                     {showMenu ? (
-                      <div className={styles.shortByPrice}>
+                      <div className={`animate__animated ${styles.shortByPrice} ${
+                        hide ? "animate__flipInX" : "animate__flipOutX"
+                      }`}>
                         <div
                           className={styles.shortLatest}
                           onClick={() => sortLatest()}
@@ -178,7 +194,9 @@ function Product() {
                     <FontAwesomeIcon icon={faArrowDown} />
                   </div>
                   {showCategory && (
-                    <div className={styles.categoryBox}>
+                    <div className={`animate__animated ${styles.categoryBox} ${
+                      categoryHide ? "animate__flipInX" : "animate__flipOutX"
+                    }`}>
                       <div className={styles.all} onClick={() => sortAll()}>
                         All{" "}
                       </div>

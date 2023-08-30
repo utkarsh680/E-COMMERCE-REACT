@@ -42,6 +42,11 @@
     justify-content: start;
   
   }
+  .image .moon {
+    height: 190px;
+   margin-left: 40px;
+    
+  }
   .overlayMargin{
     height: 100%;
     width: 100%;

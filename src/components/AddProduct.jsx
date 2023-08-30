@@ -1,15 +1,11 @@
 import Navbar from "./Navbar";
 import styles from "../styles/addProducs.module.css";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from "react-toastify";
 import { addProduct } from "../Redux/Actions/Action";
-
 import {
-  faHeart,
-  faPenToSquare,
-  faTrash,
   faBagShopping,
   faAngleRight,
   faAngleLeft,
@@ -17,6 +13,7 @@ import {
 import categoryIcon from "../assets/icons/category.svg";
 import starIcon from "../assets/icons/star.svg";
 import { v4 as uuidv4 } from "uuid";
+import "animate.css";
 
 function AddProduct() {
   const [showDescription, setShowDescription] = useState(false);
@@ -32,13 +29,13 @@ function AddProduct() {
   //  for showing details
   const handleClick = () => {
     if (showDescription) {
-      setShowDescription(!showDescription);
+      setHide(true);
       setTimeout(() => {
-        setHide(false);
+        setShowDescription(!showDescription);
       }, 500);
     } else {
       setShowDescription(!showDescription);
-      setHide(true);
+      setHide(false);
     }
   };
 
@@ -190,7 +187,7 @@ function AddProduct() {
                   onClick={() => handleClick()}
                 />
                 {showDescription && (
-                  <div className={styles.detailsCard}>
+                  <div className={`animate__animated ${styles.detailsCard} ${hide ? "animate__flipOutY" : "animate__flipInY"}`}>
                     <textarea value={description} placeholder = "Add Description here...." onChange={(e) => setDescription(e.target.value)}>
                       Enter text here...
                     </textarea>

@@ -68,13 +68,14 @@ function EditProduct(props) {
         className={styles.imgBox}
         style={{
           background: product.colorPalette
-            ? `url("${product.image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`
-            : " ",
+          ? `url("${product.image}"),  linear-gradient(to right, ${product.colorPalette.primary} 0%, ${product.colorPalette.secondary} 30%, black 90%`
+          :  `url("https://images.pexels.com/photos/821718/pexels-photo-821718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
         }}
       >
         <div className={styles.overlay}>
         <div className={styles.image}>
-              <img src={product.image} alt="" />
+           {product.image ? <img src={product.image} className = {styles.productImage} alt="" />: <img src="https://img.freepik.com/free-photo/beautiful-glowing-gray-full-moon_181624-59870.jpg?w=740&t=st=1692939690~exp=1692940290~hmac=0cde2ae2e0aeee1764df0fdafec9cb5fbed559f5c8b5fb80febc93ce08479c7b" className={styles.moon} />}  
+
           </div>
           <div className={styles.overlayMargin}>
             <div className={styles.productName}>

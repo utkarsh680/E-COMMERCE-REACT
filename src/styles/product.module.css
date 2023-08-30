@@ -297,6 +297,8 @@
   padding: 12px;
   font-size: 1.4rem;
   overflow: hidden;
+  cursor: pointer;
+
 }
 
 .detailsCard {

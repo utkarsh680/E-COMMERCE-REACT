@@ -5,14 +5,19 @@ import { useSelector } from "react-redux";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Navbar(props) {
+function Navbar(j) {
   const products = useSelector((state) => state.cartReducer.cartList);
   const [showMenu, setShowMenu] = useState(false);
+  const [hide, setHide] = useState(true);
   const handleClick = () => {
     if (showMenu) {
-      setShowMenu(!showMenu);
+      setHide(false)
+      setTimeout(() => {
+        setShowMenu(!showMenu);
+      }, 500) 
     } else {
       setShowMenu(!showMenu);
+      setHide(true)
     }
   };
   return (
@@ -41,7 +46,9 @@ function Navbar(props) {
         className={styles.barIcon}
         onClick={() => handleClick()}
       />
-      {showMenu && <ul>
+      {showMenu && <ul className={`animate__animated  ${
+                        hide ? "animate__fadeInRight" : "animate__fadeOutRight"
+                      }`}>
         <li className={styles.list1}>
           <Link to="/">Home</Link>
           <Link to="/product">Product</Link>
