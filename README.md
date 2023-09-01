@@ -4,7 +4,7 @@ The eCommerce React app allows users to browse and purchase products online. It 
 
 <p>Here is the JSON server for products - https://my-json-server.typicode.com/singh233/JSON-Server</p>
 <h2>Demo</h2>
-https://64eb5afda025aa6c4c9192d1--jolly-valkyrie-16ba1d.netlify.app 🚀
+https://64f2283d35b7640ae4c80cd5--chic-shortbread-b606d1.netlify.app/ 🚀
 
 <h2>Features</h2>
 
