@@ -21,7 +21,7 @@ import { toast } from "react-toastify";
 import "animate.css";
 
 export default function ProductsCard(props) {
-  const { product, handleEditClick } = props;
+  const { product, handleEditClick} = props;
   const { name, id, image } = product;
   const [showDescription, setShowDescription] = useState(false);
   const [hide, setHide] = useState(false);
@@ -70,8 +70,10 @@ export default function ProductsCard(props) {
   };
 
   //   for removing the product
+  const [hideProduct, setHideProduct] = useState(false);
   const removeProductClick = (id) => {
     dispatch(removeProduct(id));
+    setHideProduct(!hideProduct)
     toast.success("Product Deleted!", {
       position: "top-right",
       autoClose: 2000,
@@ -155,7 +157,8 @@ export default function ProductsCard(props) {
             <div className={styles.border}></div>
             <p
               onClick={() => removeProductClick(id)}
-              className={styles.deleteButton}
+              className={styles.deleteButton} 
+             
             >
               <FontAwesomeIcon icon={faTrash} className={styles.icon3} /> Delete
             </p>

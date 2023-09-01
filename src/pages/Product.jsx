@@ -219,7 +219,7 @@ function Product() {
                     </div>
                   )}
                 </div>
-                <div className={styles.cardBox}>
+                <div className={styles.cardBox} >
                   {products.map((product) => {
                     return (
                       <ProductsCard
